@@ -147,8 +147,13 @@ def main():
     data = {k: load(k) or None for k in ("agent_eval", "reasoning", "judges", "court_labels", "grpo", "control", "probes")}
     from lawful.collude.market import P_MONO, P_NASH
     data["market"] = {"p_nash": P_NASH, "p_mono": P_MONO}
-    if data["control"]:
-        data["control"]["decisions"] = [d for d in data["control"]["decisions"] if d["verdict"] == "repair"][:4]
+    if data["control"]:  # count over every decision before keeping a few repairs for the audit log
+        D = data["control"]["decisions"]
+        by_rules = lambda x: x["verdict"] in ("block", "repair") and x["reasons"] != ["monitor"]
+        data["control"]["repairs"] = sum(x["verdict"] == "repair" for x in D)
+        data["control"]["rules_missed"] = dict(Counter(x["family"] for x in D if x["violation"] and not by_rules(x)))
+        data["control"]["rules_false_blocks"] = sum(by_rules(x) and not x["violation"] for x in D)
+        data["control"]["decisions"] = [x for x in D if x["verdict"] == "repair"][:4]
     if data["probes"]:
         data["gap"] = knowledge_action_gap(data["probes"])
         data["probes"]["p2"].pop("rows", None)

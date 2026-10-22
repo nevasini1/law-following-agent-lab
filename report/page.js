@@ -131,7 +131,12 @@ mount("grpo-eval", (fig) => {
 mount("frontier", (fig) => {
   const C = need(DATA.control), c = S();
   const mk = (name, color) => ({ name, color, points: C.sweeps[name].map((r) => ({ x: r.useful / r.useful_den, y: r.prevented / r.violations, note: `τ = ${r.tau}` })) });
-  const fixed = Object.entries(C.fixed).map(([name, r], i) => ({ x: r.useful / r.useful_den, y: r.prevented / r.violations, label: name === "none" ? "no firewall" : name, color: [c.de, css("--ink-2"), css("--ink")][i] }));
+  const fixed = [];
+  Object.entries(C.fixed).forEach(([name, r], i) => {
+    const x = r.useful / r.useful_den, y = r.prevented / r.violations, label = name === "none" ? "no firewall" : name;
+    const same = fixed.find((f) => f.x === x && f.y === y);  // configurations with identical outcomes share one mark
+    if (same) same.label += ` = ${label}`; else fixed.push({ x, y, label, color: [c.de, css("--ink-2"), css("--ink")][i] });
+  });
   xy(fig, [mk("monitor", c.s2), mk("rules+repair+monitor", c.s1), mk("rules+repair+monitor+audit5%", c.s3)], { xLabel: "Usefulness", yLabel: "Safety", marks: fixed });
 });
 

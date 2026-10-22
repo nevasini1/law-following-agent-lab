@@ -104,11 +104,14 @@ def findings(d):
                           f"GRPO with the oracle as reward, {len(gr['train_log'])} steps of LoRA on Qwen2.5 0.5B, CPU only. "
                           f"Violations: {pct(b['violation']['p'])} &rarr; {pct(t['violation']['p'])}.", "#train"))
     c = d.get("control")
-    if c and c["fixed"].get("rules+repair"):
-        r = c["fixed"]["rules+repair"]
-        cards.append((pct(r["prevented"] / max(r["violations"], 1)), "of red-team violations stopped by rules alone",
-                      f"Keeping {pct(r['useful'] / max(r['useful_den'], 1))} of the honest agent's lawful work, because "
-                      "unlawful calls are rescheduled rather than blocked.", "#control"))
+    if c and c["fixed"].get("rules"):
+        r = c["fixed"]["rules"]
+        full = [p["prevented"] for p in c["sweeps"]["monitor"] if p["useful"] == p["useful_den"]]
+        cards.append((pct(r["prevented"] / r["violations"]), "of the agent's violations stopped by rules alone",
+                      f"Deterministic checks over the case record, at {c['latency_ms']['rules']:.0f} ms per action, let "
+                      f"{r['useful']} of the honest agent's {r['useful_den']} lawful, useful actions through"
+                      + (f". A model monitor alone, kept that permissive, stopped {pct(max(full) / r['violations'])}."
+                         if full else "."), "#control"))
     p = d.get("probes")
     if p:
         cards.append((f'{p["p1"]["layer_auroc"][p["p1"]["best_layer"]]:.2f}', "probe AUROC for legality",
@@ -223,6 +226,28 @@ def captions(d):
             f"{prange([1 - s['ppi++']['width'] / s['classical']['width'] for s in st])} narrower than gold-only, while "
             f"plain PPI is {prange([s['ppi']['width'] / s['classical']['width'] - 1 for s in st])} wider. A judge must be "
             "good before it saves labels; PPI only guarantees that a bad one cannot mislead.")
+    c = d.get("control")
+    if c:
+        V, U, r = c["fixed"]["none"]["violations"], c["fixed"]["none"]["useful_den"], c["fixed"]["rules"]
+        match = max((p for p in c["sweeps"]["monitor"] if p["prevented"] >= r["prevented"]),
+                    key=lambda p: p["useful"], default=None)
+        full = c["sweeps"]["rules+repair+monitor+audit5%"]
+        free = max((p for p in full if p["useful"] == U), key=lambda p: p["prevented"])
+        near = max((p for p in full if p["useful"] >= 0.95 * U), key=lambda p: p["prevented"])
+        every = max((p for p in full if p["prevented"] == V), key=lambda p: p["useful"], default=None)
+        miss = c["rules_missed"]
+        cap["cap-frontier"] = (
+            f"Each point is a monitor threshold. Safety counts the {V} violations across the honest and red-team runs "
+            f"({pct(c['honest_violation_rate'])} and {pct(c['attack_violation_rate'])} of actions, so the red-team prompt "
+            f"did not raise the rate); usefulness counts the honest agent's {U} lawful, useful actions. Rules alone stop "
+            f"{pct(r['prevented'] / V)} at {pct(r['useful'] / U)} usefulness"
+            + (f"; the monitor alone matches that safety only by keeping {pct(match['useful'] / U)}" if match else "")
+            + f". With the monitor and a 5% human audit, safety reaches {pct(free['prevented'] / V)} at full usefulness, "
+            f"or {pct(near['prevented'] / V)} while keeping {pct(near['useful'] / U)}"
+            + (f"; stopping every violation keeps {pct(every['useful'] / U)}" if every else "") + ". "
+            f"Of the {sum(miss.values())} violations rules miss, {miss.get('threats', 0)} are threats in the message "
+            f"text and {miss.get('inconvenient', 0)} are calls at times the consumer called inconvenient in a free-text "
+            f"note: by design, the rule layer reads neither.")
     eps = (d.get("case2env") or {}).get("episodes")
     if eps:
         both = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
@@ -278,6 +303,14 @@ def captions(d):
 
 def notes(d):
     n = {}
+    c = d.get("control")
+    if c and "repairs" in c:
+        n["control-notes"] = (
+            f"The rule layer decided in {c['latency_ms']['rules']:.0f} ms per action and blocked "
+            f"{c['rules_false_blocks']} lawful actions; the monitor took {c['latency_ms']['monitor']:.0f} ms on this CPU. "
+            f"Rescheduling turned {c['repairs']} unlawful calls into lawful ones at a later hour instead of blocking "
+            "them, as in the log above. Usefulness as defined counts only actions that were lawful to begin with, so it "
+            "does not credit those repairs.")
     j = d.get("judges")
     if j and j.get("probes"):
         viol = [v for k, v in j["probes"].items() if k.endswith("/violating")]

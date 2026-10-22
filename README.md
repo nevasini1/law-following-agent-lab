@@ -41,6 +41,9 @@ Here is what we found.
   to send an email in all 120 test cases, since email is legal in most situations and still earned partial credit.
   Its success rate rose from 24% to 67%, but it never made a phone call, and it kept emailing people who had disputed
   the debt or asked to be left alone.
+- **Simple rules made the best guard.** A firewall that checks each action against the account's records stopped 76%
+  of violations in 2 milliseconds, without blocking any legitimate work. An AI monitor on its own stopped 3% at that
+  setting. Together, with a small human review budget, they stopped 84%.
 - **We audited our own grader, too.** It had four flaws: three detection bugs, and one loophole where a model earned
   "success" by writing to lawyers who did not exist. All four are fixed and covered by tests.
 
@@ -103,7 +106,7 @@ one. It completed only 2 of the 16 control tasks, where acting was perfectly leg
 | Court-trained judges | Trains small "judge" models on labels taken from real court decisions | In the report |
 | Training | Rewards a model for lawful, useful actions (reinforcement learning, on a CPU) | In the report |
 | Judge validation | Measures how far an AI judge can be trusted, with honest error bars | In the report |
-| Runtime firewall | Sits between the agent and the world, blocks illegal actions and fixes some (moving a 7:30 a.m. call to 8:00) | Queued |
+| Runtime firewall | Sits between the agent and the world, blocks illegal actions and fixes some (moving a 7:30 a.m. call to 8:00) | In the report |
 | Probes | Looks inside a model to see whether it "knows" an action is illegal even as it takes it | Queued |
 | Price-fixing test | Two AI pricing agents compete in a simulated market, watched for collusion | Queued |
 

@@ -273,7 +273,10 @@ function xy(fig, series, { xMin = 0, xMax = 1, yMin = 0, yMax = 1, xFmt = pct, y
   }
   for (const mk of marks) {
     el("rect", { x: sx(mk.x) - 5, y: sy(mk.y) - 5, width: 10, height: 10, fill: mk.color || css("--ink-2"), stroke: css("--surface"), "stroke-width": 2 }, f.svg);
-    el("text", { x: sx(mk.x) + 9, y: sy(mk.y) + 4, class: "viz-note" }, f.svg).textContent = mk.label;
+    // near the right edge the label goes inside the plot: below the mark, or above it near the x axis
+    const right = sx(mk.x) > m.l + 0.8 * f.iw, low = mk.y - yMin < 0.15 * (yMax - yMin);
+    el("text", { x: sx(mk.x) + (right ? (low ? -28 : -9) : 9), y: sy(mk.y) + (right ? (low ? -9 : 17) : 4), "text-anchor": right ? "end" : "start",
+      class: "viz-note" }, f.svg).textContent = mk.label;
     all.push({ s: { name: mk.label, color: mk.color || css("--ink-2") }, p: mk });
   }
   const hit = el("rect", { x: m.l, y: m.t, width: f.iw, height: f.ih, fill: "transparent" }, f.svg);
