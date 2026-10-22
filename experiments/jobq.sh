@@ -10,6 +10,7 @@ while true; do
   mv "$next" "results/queue/$name.running"
   echo "[$(date +%H:%M:%S)] start $name" >> results/logs/jobq.log
   bash "results/queue/$name.running" > "results/logs/$name.log" 2>&1
-  echo "[$(date +%H:%M:%S)] end $name exit=$?" >> results/logs/jobq.log
+  rc=$?  # capture before $(date) below resets $?
+  echo "[$(date +%H:%M:%S)] end $name exit=$rc" >> results/logs/jobq.log
   mv "results/queue/$name.running" "results/queue/$name.done"
 done

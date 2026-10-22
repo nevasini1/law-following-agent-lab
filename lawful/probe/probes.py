@@ -19,8 +19,9 @@ def last_token_states(model, tok, chats: list[list[dict]], batch: int = 4) -> tu
     for i in range(0, len(chats), batch):
         prompts = [tok.apply_chat_template(c, tokenize=False, add_generation_prompt=True) for c in chats[i:i + batch]]
         enc = tok(prompts, return_tensors="pt", padding=True)
-        out = model(**enc, output_hidden_states=True)
-        feats.append(torch.stack(out.hidden_states, 1)[:, :, -1].float().numpy())
+        # only the last position is needed: full-vocabulary logits for every token of a long case file ran out of memory
+        out = model(**enc, output_hidden_states=True, logits_to_keep=1)
+        feats.append(torch.stack([h[:, -1] for h in out.hidden_states], 1).float().numpy())
         lg = out.logits[:, -1, [yes, no]].float()
         p_yes += torch.softmax(lg, -1)[:, 0].tolist()
     return np.concatenate(feats), np.array(p_yes)
