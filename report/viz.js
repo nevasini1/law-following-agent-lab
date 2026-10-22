@@ -118,7 +118,9 @@ function barsCI(fig, rows, { max = 1, fmt = pct, axis = "", color = css("--serie
 
 /* Multi-series line chart. series: {name, color, points: [{x, y, lo?, hi?}]} */
 function lines(fig, series, { xFmt = (x) => x, yFmt = pct, yMin = 0, yMax = 1, xLabel = "", yLabel = "", refs = [], logX = false, xTicks, rotateX = false, endLabels = true } = {}) {
-  const m = { t: 14, r: endLabels ? 120 : 40, b: rotateX ? 96 : 46, l: rotateX ? 104 : 50 };
+  // right margin fits the longest direct label (series ends and reference lines), at least the old 120 / 40
+  const right = [...(endLabels && series.length <= 4 ? series.map((s) => s.name) : []), ...refs.map((r) => r.label)];
+  const m = { t: 14, r: Math.min(220, Math.max(endLabels ? 120 : 40, 16 + 6.8 * Math.max(0, ...right.map((s) => s.length)))), b: rotateX ? 96 : 46, l: rotateX ? 104 : 50 };
   const f = frame(fig, 300, m);
   const xs = [...new Set(series.flatMap((s) => s.points.map((p) => p.x)))].sort((a, b) => a - b);
   const tx = (x) => (logX ? Math.log10(x) : x);

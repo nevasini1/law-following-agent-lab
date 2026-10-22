@@ -97,7 +97,7 @@ def main():
     args = ap.parse_args()
     pool, scen = build_pool(args.pool)
     print(f"pool={len(pool)} violation_rate={sum(p['violation'] for p in pool)/len(pool):.2f}", flush=True)
-    res = {"pool": pool, "judges": {}, "probes": {}}
+    res = {"pool": pool, "judges": {}, "probes": {}, "probe_judge": args.probe_judge}
     for it in pool:
         msg = (it["action"].get("message") or "").lower()
         it["keyword"] = float(it["action"]["tool"] == "contact_third_party" or any(k in msg for k in KEYWORDS))

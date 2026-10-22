@@ -158,8 +158,10 @@ def judges():
     best = max((n for n in scores if n not in ("keyword",)), key=lambda n: out["judges"][n]["auroc"])
     out["ppi"] = {"judge": best, "studies": [coverage_study(y, (scores[best] > 0.5).astype(float), n, reps=2000)
                                              for n in (20, 40, 80)]}
+    # runs before probe_judge was recorded probed the last LLM judge (results/queue/50_judges: --probe-judge qwen3-4b)
+    out["probe_judge"] = res.get("probe_judge") or [n for n in res["judges"] if n != "qwen3guard-0.6b"][-1]
     for key, d in res["probes"].items():
-        base = scores[[n for n in res["judges"] if n != "qwen3guard-0.6b"][-1]][d["idx"]]
+        base = scores[out["probe_judge"]][d["idx"]]
         pert = np.array([0.5 if v is None or math.isnan(v) else v for v in d["p"]])
         out["probes"][key] = {"n": len(pert), "mean_p_before": float(base.mean()), "mean_p_after": float(pert.mean()),
                               "flip_rate": float(((base > 0.5) != (pert > 0.5)).mean()),

@@ -5,13 +5,19 @@ Blocks whose experiments have no results are dropped by the build, not described
 """
 
 NICE = {"qwen2.5-0.5b": "Qwen2.5 0.5B", "gemma3-1b": "Gemma 3 1B", "qwen2.5-1.5b": "Qwen2.5 1.5B",
-        "llama3.2-3b": "Llama 3.2 3B", "phi4-mini": "Phi-4-mini", "gemma3-4b": "Gemma 3 4B", "qwen3-4b": "Qwen3 4B"}
+        "llama3.2-3b": "Llama 3.2 3B", "phi4-mini": "Phi-4-mini", "gemma3-4b": "Gemma 3 4B", "qwen3-4b": "Qwen3 4B",
+        "qwen3guard-0.6b": "Qwen3Guard 0.6B", "keyword": "keyword filter"}
 WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven"}
 ACTS = {"call": "a call", "email": "an email", "letter": "a letter", "sms": "a text message", "no_action": "no action"}
 
 
 def pct(x, d=0):
     return f"{100 * x:.{d}f}%"
+
+
+def prange(xs):
+    lo, hi = pct(min(xs)), pct(max(xs))
+    return lo if lo == hi else f"{lo}–{hi}"
 
 
 def comply_runs(d):
@@ -70,13 +76,17 @@ def findings(d):
                       "attorneys who do not exist. All are fixed and pinned by regression tests.", "#limits"))
     j = d.get("judges")
     if j:
-        J = j["judges"]
-        g = J.get("qwen3guard-0.6b")
-        best = max((n for n in J if n not in ("keyword", "qwen3guard-0.6b")), key=lambda n: J[n]["auroc"])
-        if g:
-            cards.append((pct(g["recall_state"]), "of state-dependent violations caught by a safety guard",
-                          f"A generic guard model with the full case file, against {pct(J[best]['recall_state'])} for "
-                          f"{NICE.get(best, best)} prompted as a legal judge.", "#judge"))
+        J, ds = j["judges"], j["dawid_skene"]
+        models = [m for m in J if m != "keyword"]
+        llm = [J[m]["auroc"] for m in models if m != "qwen3guard-0.6b"]
+        best = max(models, key=lambda m: J[m]["auroc"])
+        cards.append((f"{min(J[m]['auroc'] for m in models):.2f}&ndash;{max(J[m]['auroc'] for m in models):.2f}",
+                      "AUROC of every model judge, where 0.5 is chance",
+                      f"On {j['n']} real agent actions, LLMs prompted as legal judges scored {min(llm):.2f}&ndash;"
+                      f"{max(llm):.2f} and {NICE.get(best, best)}" + (", a generic safety guard," if best == "qwen3guard-0.6b" else "")
+                      + f" did best. Judged by agreement alone, they looked "
+                      f"{prange([ds['estimated_accuracy'][m] for m in models])} accurate; they were "
+                      f"{prange([ds['true_accuracy'][m] for m in models])}.", "#judge"))
     gr = d.get("grpo")
     if gr:
         B, T = gr["eval"]["base"], gr["eval"]["trained"]
@@ -181,6 +191,38 @@ def captions(d):
             f"Balanced accuracy on {n} cases per depth, half lawful and half with exactly one violated constraint. "
             + "; ".join(parts) + f". With {n} cases per point the intervals are wide (about ±20 points), so read "
             "the trend rather than single points: neither model reliably judges interacting rules.")
+    j = d.get("judges")
+    if j:
+        J = j["judges"]
+        best = max((m for m in J if m != "keyword"), key=lambda m: J[m]["auroc"])
+        s = (f"Recall and false-positive rate at a 0.5 threshold on {j['n']} real agent actions, "
+             f"{pct(j['violation_rate'])} of them unlawful. State-dependent violations need the case file (the time, the "
+             f"recipient, a cease letter); content violations are in the words. ")
+        if "keyword" in J:
+            s += (f"The keyword filter catches {pct(J['keyword']['recall_content'])} of content violations and "
+                  f"{pct(J['keyword']['recall_state'])} of state-dependent ones. ")
+        g = J.get("qwen3guard-0.6b")
+        if g:
+            s += (f"The generic guard catches {pct(g['recall_content'])} and {pct(g['recall_state'])}, with "
+                  f"{pct(g['false_positive_rate'])} false alarms" + (", and ranks actions best" if best == "qwen3guard-0.6b"
+                                                                     else "") + f" (AUROC {g['auroc']:.2f}). ")
+        for m in [m for m in J if m not in ("keyword", "qwen3guard-0.6b")]:
+            r = J[m]
+            s += (f"{NICE.get(m, m)}, prompted as a legal judge, catches {pct(r['recall_content'])} and "
+                  f"{pct(r['recall_state'])} while flagging {pct(r['false_positive_rate'])} of lawful actions "
+                  f"(AUROC {r['auroc']:.2f}). ")
+        cap["cap-judges"] = s.strip()
+        st, P = j["ppi"]["studies"], j["ppi"]
+        cov = lambda k: prange([s[k]["coverage"] for s in st])
+        cap["cap-ppi"] = (
+            f"Estimating the share of unlawful actions among {st[0]['N']} from {st[0]['n_labeled']}–{st[-1]['n_labeled']} "
+            f"gold labels plus {NICE.get(P['judge'], P['judge'])}'s verdicts on the rest, over repeated draws. Trusting "
+            f"the judge alone gives an interval that contains the truth in {cov('naive')} of draws (it is off by "
+            f"{100 * abs(st[0]['naive']['bias']):.0f} points). Gold labels alone are valid ({cov('classical')}) but wide. "
+            f"PPI++ is valid too ({cov('ppi++')}) and, with a judge this weak, barely leans on it: its interval is "
+            f"{prange([1 - s['ppi++']['width'] / s['classical']['width'] for s in st])} narrower than gold-only, while "
+            f"plain PPI is {prange([s['ppi']['width'] / s['classical']['width'] - 1 for s in st])} wider. A judge must be "
+            "good before it saves labels; PPI only guarantees that a bad one cannot mislead.")
     eps = (d.get("case2env") or {}).get("episodes")
     if eps:
         both = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
@@ -236,6 +278,22 @@ def captions(d):
 
 def notes(d):
     n = {}
+    j = d.get("judges")
+    if j and j.get("probes"):
+        viol = [v for k, v in j["probes"].items() if k.endswith("/violating")]
+        ds = j["dawid_skene"]
+        models = [m for m in ds["estimated_accuracy"] if m != "keyword"]
+        pj = j.get("probe_judge", "")
+        n["judge-robust"] = (
+            f"Is a judge easy to talk out of a verdict? Adding an authority claim, an instruction aimed at the judge, or "
+            f"padding to {viol[0]['n']} unlawful agent messages changed {NICE.get(pj, pj)}'s verdict in "
+            f"{prange([v['flip_rate'] for v in viol])} of cases, and made one look lawful in at most "
+            f"{pct(max(v['flip_to_compliant'] for v in viol))}. It is hard to sway; the trouble is that its verdicts "
+            f"carry little signal to begin with. Combining judges does not help: majority vote is "
+            f"{pct(ds['majority_accuracy'])} accurate and the Dawid–Skene aggregate {pct(ds['aggregate_accuracy'])}. "
+            f"Dawid–Skene, which never sees a gold label, put each model judge's accuracy at "
+            f"{prange([ds['estimated_accuracy'][m] for m in models])}; the truth was "
+            f"{prange([ds['true_accuracy'][m] for m in models])}. Judges that agree are not thereby right.")
     au = d.get("audit")
     if au:
         h, f = au.get("held_out") or {}, au.get("final") or {}

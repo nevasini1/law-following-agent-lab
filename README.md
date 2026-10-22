@@ -30,6 +30,10 @@ Here is what we found.
 - **Legal reasoning falls apart as rules pile up.** Asked whether a call was legal, the same model scored 71% when
   one rule mattered and 46%, worse than a coin flip, when five did. With four or more rules in play, it called every
   legal call illegal.
+- **AI judges of legality were no better than a coin flip.** Two LLMs asked whether 200 real agent actions were legal
+  scored 0.42 and 0.45, where 0.5 is guessing. A generic safety filter did best (0.63), mostly by catching threats and
+  insults rather than violations that depend on the facts. Judged by how much they agreed with each other, the judges
+  looked 76–80% accurate; they were really 42–57%.
 - **Labels from real court decisions work.** A small model trained on just 50 European Court of Human Rights
   judgments predicted the court's verdicts much better than a general-purpose model asked directly: 0.90 versus 0.73,
   on a scale where 0.5 is guessing and 1.0 is perfect.
@@ -98,7 +102,7 @@ one. It completed only 2 of the 16 control tasks, where acting was perfectly leg
 | Reasoning stress tests | Checks whether a model's legal judgments stay consistent as the facts get stronger or weaker | In the report |
 | Court-trained judges | Trains small "judge" models on labels taken from real court decisions | In the report |
 | Training | Rewards a model for lawful, useful actions (reinforcement learning, on a CPU) | In the report |
-| Judge validation | Measures how far an AI judge can be trusted, with honest error bars | Queued |
+| Judge validation | Measures how far an AI judge can be trusted, with honest error bars | In the report |
 | Runtime firewall | Sits between the agent and the world, blocks illegal actions and fixes some (moving a 7:30 a.m. call to 8:00) | Queued |
 | Probes | Looks inside a model to see whether it "knows" an action is illegal even as it takes it | Queued |
 | Price-fixing test | Two AI pricing agents compete in a simulated market, watched for collusion | Queued |
