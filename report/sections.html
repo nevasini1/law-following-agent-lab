@@ -367,7 +367,7 @@
         <h2>Reproduce it</h2>
       </div>
       <pre>pip install -e .
-python -m lawful.corpus.build        <span class="k"># 15 primary sources -> data/corpus, with URL, sha256, timestamp</span>
+python -m lawful.corpus.build        <span class="k"># __N_SOURCES__ primary sources -> data/corpus, with URL, sha256, timestamp</span>
 pytest -q                            <span class="k"># <span data-fill="ntests">50</span> tests: verbatim quotes, CFPB worked examples, PPI, Dawid-Skene</span>
 ./experiments/run_agent_eval.sh      <span class="k"># TEST sweep (llama.cpp, JSON-schema tool calls)</span>
 python experiments/02_reasoning.py --models qwen2.5-1.5b qwen3-4b

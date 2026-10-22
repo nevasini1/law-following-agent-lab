@@ -1,9 +1,11 @@
 """Assemble report/index.html: template + inlined CSS/JS + one JSON payload built from results/summary.
+Also exports the design diagram to docs/design.svg for the README.
 
     python experiments/analyze.py && python experiments/build_report.py
 """
 import json
 import re
+import textwrap
 from collections import Counter
 
 import numpy as np
@@ -12,6 +14,7 @@ from lawful.agents.llm_agent import parse_action, render_case
 from lawful.env.world import Scenario
 from lawful.law.deontic import WORKED_CONFLICTS, debt_collection_norms, resolve
 from lawful.law.oracle import ARREST, MM_SUBSEQ, SUIT_ANY, SUIT_FIRM, affirmed, evaluate
+from lawful.law.provisions import P
 from lawful.paths import CORPUS, RESULTS, ROOT, SCENARIOS
 from lawful.stats import wilson
 from report_text import captions, findings, notes, spec
@@ -172,10 +175,11 @@ def main():
         "attorney": ["no letter yet", "3 days", "7 days", "14 days", "30 days", "60 days", "120 days"],
         "attorney_fl": ["14 days", "25 days", "35 days", "60 days"],
         "threat": ["will sue Monday", "is going to be taken", "may take", "could result in", "review options", "discuss payment"]}
-    data["n_tests"] = count_tests()
+    data["n_tests"], data["n_provisions"] = count_tests(), len(P)
     data["captions"], data["notes"] = captions(data), notes(data)
     html = (REPORT / "template.html").read_text()
     html = html.replace("<!--__SECTIONS__-->", (REPORT / "sections.html").read_text())
+    html = html.replace("__N_SOURCES__", str(len(data["sources"])))
     html = html.replace("<!--__FINDINGS__-->", findings(data))
     have = {"episodes": bool(data["case2env"]["episodes"]), "reasoning": bool(data["reasoning"]),
             "judges": bool(data["judges"]), "court_labels": bool(data["court_labels"]),
@@ -192,6 +196,25 @@ def main():
     (REPORT / "index.html").write_text(html)
     print(f"report/index.html: {len(html) / 1024:.0f} KB; modules with data: "
           + ", ".join(k for k, v in data.items() if v))
+    export_diagram(html)
+
+
+def export_diagram(html):
+    """The template's design diagram as a standalone SVG in the report's light and dark palettes. It brings its own
+    background, so it reads on GitHub whichever theme the page and the viewer's system disagree on."""
+    css = (REPORT / "style.css").read_text()
+    light = re.search(r":root\s*\{(.*?)\}", css, re.S).group(1)
+    dark = re.search(r"prefers-color-scheme: dark\)\s*\{\s*:root[^{]*\{(.*?)\}", css, re.S).group(1)
+    tokens = lambda block: ";".join(f"--{k}:{v}" for k, v in re.findall(r"--(surface|ink|rule|accent):\s*(#\w+)", block))
+    m = re.search(r'<figure class="diagram">\n( *)(<svg.*?</svg>)', html, re.S)
+    svg = textwrap.dedent(m.group(1) + m.group(2))
+    w, h = map(int, re.search(r'viewBox="0 0 (\d+) (\d+)"', svg).groups())
+    svg = svg.replace("<svg ", f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" ', 1)
+    head = (f"<style>:root{{{tokens(light)}}}@media (prefers-color-scheme: dark){{:root{{{tokens(dark)}}}}}</style>\n"
+            f'  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="10" style="fill: var(--surface); stroke: var(--rule)"/>')
+    svg = re.sub(r"(<svg[^>]*>)", lambda m: f"{m.group(1)}\n  {head}", svg, count=1)
+    (ROOT / "docs").mkdir(exist_ok=True)
+    (ROOT / "docs" / "design.svg").write_text(svg + "\n")
 
 
 if __name__ == "__main__":

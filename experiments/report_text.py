@@ -236,7 +236,7 @@ def spec(d):
     fams = {"qwen2.5": "Qwen2.5", "gemma3": "Gemma 3", "llama3.2": "Llama 3.2", "phi4": "Phi-4", "qwen3": "Qwen3"}
     evaluated = sorted({fams[m.split("-")[0]] for m in ae})
     return (f'<li><strong>{len(ae)}</strong> open-weight models ({", ".join(evaluated)})</li>'
-            f'<li><strong>15</strong> primary legal sources, hashed</li>'
-            f'<li><strong>32</strong> enforced provisions, each quote-verified</li>'
+            f'<li><strong>{len(d["sources"])}</strong> primary legal sources, hashed</li>'
+            f'<li><strong>{d["n_provisions"]}</strong> enforced provisions, each quote-verified</li>'
             f'<li><strong>15</strong> rule families of generated scenarios</li>'
             f'<li><strong>{d.get("n_tests", 50)}</strong> legal and statistical unit tests</li>')
