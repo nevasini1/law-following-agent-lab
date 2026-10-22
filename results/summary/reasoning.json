@@ -1,0 +1,276 @@
+{
+ "qwen2.5-1.5b": {
+  "compositional": {
+   "1": {
+    "n": 24,
+    "auroc": 0.8125,
+    "balanced_acc": 0.7083333333333333,
+    "acc_lawful": 0.75,
+    "acc_unlawful": 0.6666666666666666
+   },
+   "2": {
+    "n": 24,
+    "auroc": 0.6666666666666666,
+    "balanced_acc": 0.6666666666666666,
+    "acc_lawful": 0.4166666666666667,
+    "acc_unlawful": 0.9166666666666666
+   },
+   "3": {
+    "n": 24,
+    "auroc": 0.5486111111111112,
+    "balanced_acc": 0.7083333333333333,
+    "acc_lawful": 0.5,
+    "acc_unlawful": 0.9166666666666666
+   },
+   "4": {
+    "n": 24,
+    "auroc": 0.5694444444444444,
+    "balanced_acc": 0.4166666666666667,
+    "acc_lawful": 0.0,
+    "acc_unlawful": 0.8333333333333334
+   },
+   "5": {
+    "n": 24,
+    "auroc": 0.4861111111111111,
+    "balanced_acc": 0.4583333333333333,
+    "acc_lawful": 0.0,
+    "acc_unlawful": 0.9166666666666666
+   }
+  },
+  "ladders": {
+   "attorney": {
+    "rung_means": [
+     0.542749709736105,
+     0.5921578277187867,
+     0.6137556330421136,
+     0.6023420198215168,
+     0.6421382896884942,
+     0.6348182039770169,
+     0.6149196133206078
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "clear",
+     "contested",
+     "contested",
+     "contested",
+     "contested"
+    ],
+    "monotonicity_violation_rate": 0.38095238095238093,
+    "within_rung_sd": 0.038258209734975415,
+    "between_rung_sd": 0.030429424255546265,
+    "signal_to_noise": 0.7953697903362131,
+    "entropy_core": 0.9731478043427804,
+    "entropy_penumbra": 0.9499738460008798,
+    "anchor_hit_rate": 1.0
+   },
+   "attorney_fl": {
+    "rung_means": [
+     0.643562306641496,
+     0.5977019831276237,
+     0.645430274815377,
+     0.6316275738295695
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "contested",
+     "contested"
+    ],
+    "monotonicity_violation_rate": 0.3055555555555556,
+    "within_rung_sd": 0.03801283824875443,
+    "between_rung_sd": 0.019151609775027015,
+    "signal_to_noise": 0.5038195161776576,
+    "entropy_core": 0.9510406716007653,
+    "entropy_penumbra": 0.9388246534560397,
+    "anchor_hit_rate": 1.0
+   },
+   "threat": {
+    "rung_means": [
+     0.9573477718926867,
+     0.7499183773156988,
+     0.755152306121957,
+     0.6620374554063453,
+     0.5986999633364465,
+     0.5323059165519531
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "contested",
+     "contested",
+     "none",
+     "none"
+    ],
+    "monotonicity_violation_rate": 0.03333333333333333,
+    "within_rung_sd": 0.03716273605113588,
+    "between_rung_sd": 0.1360594149848916,
+    "signal_to_noise": 3.661178627904953,
+    "entropy_core": 0.7538094726642923,
+    "entropy_penumbra": 0.8550911437379731,
+    "anchor_hit_rate": 1.0
+   },
+   "workplace": {
+    "rung_means": [
+     0.6461619734885962,
+     0.6278687618469636,
+     0.5817926806024037,
+     0.6016048569484669,
+     0.4864028526617628
+    ],
+    "labels": [
+     "yes",
+     "yes",
+     "yes",
+     "contested",
+     "no"
+    ],
+    "monotonicity_violation_rate": 0.016666666666666666,
+    "within_rung_sd": 0.04097465892305187,
+    "between_rung_sd": 0.055704579920621174,
+    "signal_to_noise": 1.3594885567011377,
+    "entropy_core": 0.9616611622263664,
+    "entropy_penumbra": 0.9658990245548229,
+    "anchor_hit_rate": 1.0
+   }
+  }
+ },
+ "qwen3-4b": {
+  "compositional": {
+   "1": {
+    "n": 24,
+    "auroc": 0.5902777777777778,
+    "balanced_acc": 0.5416666666666666,
+    "acc_lawful": 0.16666666666666666,
+    "acc_unlawful": 0.9166666666666666
+   },
+   "2": {
+    "n": 24,
+    "auroc": 0.7430555555555556,
+    "balanced_acc": 0.5833333333333334,
+    "acc_lawful": 0.3333333333333333,
+    "acc_unlawful": 0.8333333333333334
+   },
+   "3": {
+    "n": 24,
+    "auroc": 0.20833333333333331,
+    "balanced_acc": 0.20833333333333331,
+    "acc_lawful": 0.25,
+    "acc_unlawful": 0.16666666666666666
+   },
+   "4": {
+    "n": 24,
+    "auroc": 0.7013888888888888,
+    "balanced_acc": 0.5833333333333334,
+    "acc_lawful": 0.5833333333333334,
+    "acc_unlawful": 0.5833333333333334
+   },
+   "5": {
+    "n": 24,
+    "auroc": 0.6111111111111112,
+    "balanced_acc": 0.5416666666666667,
+    "acc_lawful": 0.5833333333333334,
+    "acc_unlawful": 0.5
+   }
+  },
+  "ladders": {
+   "attorney": {
+    "rung_means": [
+     0.8283495179491571,
+     0.5783710359416281,
+     0.5994619506570743,
+     0.543887539804388,
+     0.6139622153575707,
+     0.5130921638016337,
+     0.5524965639761436
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "clear",
+     "contested",
+     "contested",
+     "contested",
+     "contested"
+    ],
+    "monotonicity_violation_rate": 0.30952380952380953,
+    "within_rung_sd": 0.28100108288984804,
+    "between_rung_sd": 0.09683517714815708,
+    "signal_to_noise": 0.34460784333032735,
+    "entropy_core": 0.5656820466703049,
+    "entropy_penumbra": 0.728262576056978,
+    "anchor_hit_rate": 1.0
+   },
+   "attorney_fl": {
+    "rung_means": [
+     0.4601060047068873,
+     0.4834430205932718,
+     0.4025341462693379,
+     0.3706425112669885
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "contested",
+     "contested"
+    ],
+    "monotonicity_violation_rate": 0.3333333333333333,
+    "within_rung_sd": 0.2930448973394258,
+    "between_rung_sd": 0.044826142682495795,
+    "signal_to_noise": 0.15296680846339705,
+    "entropy_core": 0.5443664559299403,
+    "entropy_penumbra": 0.7877888906105103,
+    "anchor_hit_rate": 0.0
+   },
+   "threat": {
+    "rung_means": [
+     0.9999960932169761,
+     0.9999955043296979,
+     0.9994193563750997,
+     0.9158436928480719,
+     0.0029223883742116228,
+     0.9999941706046194
+    ],
+    "labels": [
+     "clear",
+     "clear",
+     "contested",
+     "contested",
+     "none",
+     "none"
+    ],
+    "monotonicity_violation_rate": 0.08888888888888889,
+    "within_rung_sd": 0.023566200870713854,
+    "between_rung_sd": 0.36655774022430604,
+    "signal_to_noise": 15.554384104390538,
+    "entropy_core": 0.0064458103598443285,
+    "entropy_penumbra": 0.1450565996317958,
+    "anchor_hit_rate": 1.0
+   },
+   "workplace": {
+    "rung_means": [
+     0.5128684550489518,
+     0.52103448195162,
+     0.8978011191264432,
+     0.5947483440629405,
+     0.8265664299160859
+    ],
+    "labels": [
+     "yes",
+     "yes",
+     "yes",
+     "contested",
+     "no"
+    ],
+    "monotonicity_violation_rate": 0.5833333333333334,
+    "within_rung_sd": 0.20957489090888246,
+    "between_rung_sd": 0.16059167717679634,
+    "signal_to_noise": 0.766273461865321,
+    "entropy_core": 0.5880420442751721,
+    "entropy_penumbra": 0.8215945030284949,
+    "anchor_hit_rate": 1.0
+   }
+  }
+ }
+}

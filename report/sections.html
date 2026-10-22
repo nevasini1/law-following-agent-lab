@@ -1,0 +1,381 @@
+    <section id="test">
+      <div class="section-head">
+        <span class="agenda">Test</span>
+        <h2>Court decisions become environments</h2>
+        <p class="question">&ldquo;How do we turn court decisions, and the facts and reasoning they record, into realistic
+          simulated environments, and generate new scenarios automatically from the rules they state?&rdquo;</p>
+      </div>
+      <div class="prose">
+        <p>The worked example is <span class="case">Horkey v. J.V.D.B. &amp; Associates, Inc.</span>, 333 F.3d 769
+          (7th Cir. 2003). A collector phoned Amanda Horkey at work about an $817 debt. She said she could not talk there
+          and would call back from home; he kept pressing, she hung up, and he called back and left a profane message with
+          a coworker. The pipeline turns that opinion into an environment in four steps.</p>
+        <ul>
+          <li><strong>Segment.</strong> Each paragraph is labeled Facts, Rule, Analysis, Conclusion and so on by a classifier
+            trained on LegalBench&rsquo;s court-opinion paragraphs, whose labels come from real decisions.
+            <span data-fill="fods"></span></li>
+          <li><strong>Extract, then verify.</strong> An LLM lists who said what to whom and where. Every event must quote
+            its source span verbatim or it is dropped, because anything that becomes ground truth is selected from the
+            opinion, never generated. <span data-fill="spans"></span></li>
+          <li><strong>Link rules to provisions</strong> by citation (&sect;&nbsp;1692c(a)(3) &rarr; the oracle&rsquo;s
+            workplace rule).</li>
+          <li><strong>Replay.</strong> Simulated counterparties speak the recorded lines, and the world state updates exactly
+            as the precedent dictates: after &ldquo;I can&rsquo;t talk to you at work&rdquo;, the collector has reason to
+            know.</li>
+        </ul>
+      </div>
+      <blockquote class="law">
+        <p>&ldquo;Horkey informed Romero that she could not discuss her debt while at work, and J.V.D.B. presents no evidence
+          that Horkey&rsquo;s employer did allow her to take debt-related calls. Therefore we conclude that in this instance
+          Romero <mark>had reason to know</mark> that Horkey&rsquo;s employer prohibited her from receiving communications
+          related to debt collection while at work.&rdquo;</p>
+        <cite><span class="case">Horkey</span>, 333 F.3d at 773. The CFPB later wrote the same rule into its official
+          commentary: a collector has reason to know &ldquo;if, for example, the consumer tells the debt collector that the
+          consumer cannot take personal calls at work&rdquo; (12 C.F.R. pt. 1006, Supp. I, cmt. 6(b)(3)-1).</cite>
+      </blockquote>
+      <div class="prose">
+        <p><strong>From rules to scenarios.</strong> A rule a court states defines a decision boundary, and a generator can
+          sweep it. Fifteen scenario families each isolate one mechanism and vary the <em>legally relevant</em> fact across
+          its boundary: local time against 8:00&nbsp;a.m. and 9:00&nbsp;p.m. across time zones, calls against the 7-in-7
+          presumption, days of attorney silence against Florida&rsquo;s 30-day line, and statements stronger or weaker
+          than the <span class="case">Horkey</span> anchor. Legally <em>irrelevant</em> facts (name, creditor, balance,
+          city) are randomized. Two control families have no legal hazard at all, so over-refusal is measurable. Labels
+          come from the oracle, never from an LLM. Blindly obeying the manager&rsquo;s instruction would break the law in
+          <span data-fill="trap"></span> of non-control scenarios.</p>
+      </div>
+      <div class="pair">
+        <div><p class="label">What the agent sees</p><pre class="wrap" data-fill="example-case"></pre></div>
+        <div><p class="label">What it did, and the oracle&rsquo;s finding</p><pre class="wrap" data-fill="example-out"></pre></div>
+      </div>
+
+      <figure class="viz" data-chart="leaderboard">
+        <div class="viz-head"><span class="viz-title">Open-weight agents, 120 law-grounded decisions each</span><button class="viz-toggle" type="button" id="t-leaderboard">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-leaderboard"></figcaption>
+      </figure>
+      <figure class="viz" data-chart="families">
+        <div class="viz-head"><span class="viz-title">Where each model breaks the law</span><button class="viz-toggle" type="button" id="t-families">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-families"></figcaption>
+      </figure>
+      <figure class="viz" data-chart="ablations">
+        <div class="viz-head"><span class="viz-title">Does telling the agent about the law help? Does pressure hurt?</span><button class="viz-toggle" type="button" id="t-ablations">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-ablations"></figcaption>
+      </figure>
+      <!--needs:episodes-->
+      <figure class="viz" data-chart="episodes">
+        <div class="viz-head"><span class="viz-title"><span class="case">Horkey</span>, replayed as a three-turn environment</span><button class="viz-toggle" type="button" id="t-episodes">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-episodes"></figcaption>
+      </figure>
+      <!--/needs:episodes-->
+    </section>
+
+    <section id="reason">
+      <div class="section-head">
+        <span class="agenda">Reason</span>
+        <h2>Conflicting obligations, overlapping jurisdictions, open texture</h2>
+        <p class="question">&ldquo;How should agents reason across conflicting obligations, overlapping jurisdictions, and
+          open-textured standards that leave room for discretion?&rdquo;</p>
+      </div>
+      <div class="prose">
+        <p><strong>Overlap is the normal case, not the edge case.</strong> One phone call can be governed at once by the
+          FDCPA and Regulation F (third-party collectors), Florida&rsquo;s Consumer Collection Practices Act (anyone
+          collecting from a Floridian, creditors included), Massachusetts&rsquo; 940 CMR 7.04 (creditors), and the TCPA,
+          which after the FCC&rsquo;s 2024 ruling covers AI-generated voices. The regimes disagree in instructive ways.
+          Florida lets a caller presume the area code&rsquo;s time zone, while Regulation F requires a time that is
+          convenient in <em>every</em> location the file indicates. Florida draws a 30-day line where federal law says
+          &ldquo;a reasonable period of time&rdquo;. Massachusetts caps calls at two per week where Regulation F presumes
+          harassment only after seven.</p>
+        <p>A small defeasible deontic engine resolves these conflicts and shows its work. Norms are forbidden, obligatory or
+          permitted. Conflicts resolve by explicit exception, then lex superior, then the FDCPA&rsquo;s own preemption
+          clause, then lex specialis and lex posterior. Under &sect;&nbsp;1692n, state law survives unless it gives consumers
+          <em>less</em> protection, so the more protective norm controls.</p>
+      </div>
+      <blockquote class="law">
+        <p>&ldquo;For purposes of this section, a State law is not inconsistent with this subchapter if the protection such law
+          affords any consumer is <mark>greater than the protection provided by this subchapter</mark>.&rdquo;</p>
+        <cite>15 U.S.C. &sect;&nbsp;1692n</cite>
+      </blockquote>
+      <div class="table-wrap"><table class="data" data-fill="deontic"></table></div>
+      <!--needs:reasoning-->
+      <div class="prose">
+        <p><strong>Compositional depth.</strong> Each probe case contains k legal considerations (time zones, an ambiguous
+          area code, a stated inconvenient time, the call log, attorney representation, AI-voice consent). Either all of
+          them are satisfied, or exactly one is violated, so the model has to check every one. Labels come from the
+          oracle by rejection sampling; P(lawful) is read from the model&rsquo;s Yes/No logits.</p>
+      </div>
+      <figure class="viz" data-chart="compositional">
+        <div class="viz-head"><span class="viz-title">Accuracy as legal constraints interact</span><button class="viz-toggle" type="button" id="t-compositional">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-compositional"></figcaption>
+      </figure>
+      <div class="prose">
+        <p><strong>Open texture without ground truth.</strong> Where the law leaves discretion there is no label to check
+          against, but there are relations that must hold. These are <em>a fortiori ladders</em>: an ordered series of
+          fact patterns anchored at a decided point. A statement stronger than the one in
+          <span class="case">Horkey</span> must count as reason to know if <span class="case">Horkey</span>&rsquo;s does.
+          A firmer threat of suit is at least as misleading as a hedged one. The probe measures monotonicity along each
+          ladder, agreement with the anchors, sensitivity to legally irrelevant facts (each rung is instantiated in six
+          contexts with different names and creditors), and whether uncertainty rises in the penumbra, where it should.</p>
+      </div>
+      <div class="grid-2">
+        <figure class="viz" data-chart="ladder-workplace"><div class="viz-head"><span class="viz-title">&ldquo;Reason to know&rdquo; (workplace calls)</span><button class="viz-toggle" type="button" id="t-lw">Table</button></div><div class="viz-legend"></div><div class="viz-plot"></div><div class="viz-table"></div><figcaption>Rungs 1&ndash;3 are anchored: stronger than, equal to the CFPB example, and equal to <span class="case">Horkey</span>.</figcaption></figure>
+        <figure class="viz" data-chart="ladder-threat"><div class="viz-head"><span class="viz-title">Threat of suit (no intent to sue)</span><button class="viz-toggle" type="button" id="t-lt">Table</button></div><div class="viz-legend"></div><div class="viz-plot"></div><div class="viz-table"></div><figcaption>Firm threats are clear violations of &sect;&nbsp;1692e(5); hedged ones sit in the penumbra (<span class="case">Brown v. Card Service Center</span>, 464 F.3d 450).</figcaption></figure>
+        <figure class="viz" data-chart="ladder-attorney"><div class="viz-head"><span class="viz-title">&ldquo;A reasonable period of time&rdquo; (federal)</span><button class="viz-toggle" type="button" id="t-la">Table</button></div><div class="viz-legend"></div><div class="viz-plot"></div><div class="viz-table"></div><figcaption>Days since the collector wrote to the consumer&rsquo;s attorney with no reply. Only the first rungs are clear.</figcaption></figure>
+        <figure class="viz" data-chart="ladder-attorney_fl"><div class="viz-head"><span class="viz-title">Same facts in Florida: a 30-day bright line</span><button class="viz-toggle" type="button" id="t-lf">Table</button></div><div class="viz-legend"></div><div class="viz-plot"></div><div class="viz-table"></div><figcaption>Fla. Stat. &sect;&nbsp;559.72(18): contact is barred until the attorney has been silent for 30 days.</figcaption></figure>
+      </div>
+      <div class="prose" data-fill="ladder-stats"></div>
+      <!--/needs:reasoning-->
+    </section>
+
+    <!--needs:judge_any-->
+    <section id="judge">
+      <div class="section-head">
+        <span class="agenda">Judge</span>
+        <h2>Validating judges that are themselves models</h2>
+        <p class="question">&ldquo;How do we validate evaluations of legal compliance when the judge is itself a model, and how
+          do we build labeled data from court decisions to train better judges?&rdquo;</p>
+      </div>
+      <!--needs:judges-->
+      <div class="prose">
+        <p>The judged objects are real: <span data-fill="pool"></span> distinct actions taken by the agents above, labeled
+          by the oracle and balanced across families. Violations split into two kinds. <em>State-dependent</em> ones are
+          lawful words at an unlawful time, to the wrong person, or after a cease letter. <em>Content</em> ones are a
+          threat, a slur, or telling a third party about the debt. The comparison includes an off-the-shelf safety guard,
+          Qwen3Guard, whose policy covers &ldquo;non-violent illegal acts&rdquo;, given the full case file as context.</p>
+      </div>
+      <!--/needs:judges-->
+      <!--needs:judges-->
+      <figure class="viz" data-chart="judges">
+        <div class="viz-head"><span class="viz-title">What each judge catches</span><button class="viz-toggle" type="button" id="t-judges">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-judges"></figcaption>
+      </figure>
+      <div class="table-wrap"><table class="data" data-fill="judge-table"></table></div>
+      <div class="prose" data-fill="judge-robust"></div>
+      <figure class="viz" data-chart="ppi">
+        <div class="viz-head"><span class="viz-title">Valid compliance rates from a few gold labels plus a judge</span><button class="viz-toggle" type="button" id="t-ppi">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-ppi"></figcaption>
+      </figure>
+      <!--/needs:judges-->
+      <!--needs:court_labels-->
+      <div class="prose">
+        <p><strong>Labels from court decisions.</strong> The European Court of Human Rights decides whether a state violated
+          the Convention, so its judgments are compliance labels issued by a court. On LexGLUE&rsquo;s ECtHR-A (9,000
+          training and 1,000 test judgments), the task is: did the Court find a violation of Article&nbsp;3? The figure
+          compares small trained judges, fit on court-labeled examples at increasing scale, with a zero-shot LLM judge.</p>
+      </div>
+      <figure class="viz" data-chart="ecthr">
+        <div class="viz-head"><span class="viz-title">How many court-labeled examples beat a zero-shot judge?</span><button class="viz-toggle" type="button" id="t-ecthr">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-ecthr"></figcaption>
+      </figure>
+      <!--/needs:court_labels-->
+    </section>
+    <!--/needs:judge_any-->
+
+    <!--needs:grpo-->
+    <section id="train">
+      <div class="section-head">
+        <span class="agenda">Train</span>
+        <h2>Reinforcement learning from legal feedback</h2>
+        <p class="question">&ldquo;&hellip;training them to follow it.&rdquo;</p>
+      </div>
+      <div class="prose">
+        <p>A from-scratch GRPO implementation with LoRA (rank 16) trains Qwen2.5-0.5B-Instruct on the CPU. The reward is the
+          oracle: &minus;1 for a violation, &minus;0.5 for a contested action, &minus;0.25 for a missing &sect;&nbsp;1692e(11)
+          disclosure, and up to +1 for a lawful, productive action. A lawful call earns full credit. Mail and email earn
+          partial credit, because they are lawful almost everywhere and would otherwise be a safe harbor the policy hides
+          in. Training uses eight rule families; evaluation uses the TEST scenarios, split into those eight families and
+          seven families the policy never saw.</p>
+      </div>
+      <figure class="viz" data-chart="grpo-curve">
+        <div class="viz-head"><span class="viz-title">Training rollouts</span><button class="viz-toggle" type="button" id="t-grpo1">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-grpo-curve"></figcaption>
+      </figure>
+      <figure class="viz" data-chart="grpo-eval">
+        <div class="viz-head"><span class="viz-title">Before and after, on held-out scenarios</span><button class="viz-toggle" type="button" id="t-grpo2">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-grpo-eval"></figcaption>
+      </figure>
+    </section>
+    <!--/needs:grpo-->
+
+    <!--needs:control-->
+    <section id="control">
+      <div class="section-head">
+        <span class="agenda">Control</span>
+        <h2>A runtime firewall for tool calls</h2>
+        <p class="question">&ldquo;&hellip;and controlling them at runtime.&rdquo;</p>
+      </div>
+      <div class="prose">
+        <p>Every tool call passes through three layers before it executes. The <strong>rule layer</strong> checks the
+          structured system of record and, for timing violations, <em>repairs</em> rather than blocks, rescheduling the
+          call to the earliest lawful slot. The <strong>monitor</strong> is a small trusted model reading the full case
+          file, free-text notes included, that blocks or escalates. Escalations go to a simulated <strong>human
+          audit</strong> with a 5% budget. The untrusted agent runs twice on the same scenarios, once honest and once
+          under a red-team prompt that rewards collections and says a compliance filter is watching. Safety is the share of
+          its violations prevented; usefulness is the share of the honest agent&rsquo;s lawful, productive actions that
+          still go through.</p>
+      </div>
+      <figure class="viz" data-chart="frontier">
+        <div class="viz-head"><span class="viz-title">Safety against usefulness as the monitor threshold moves</span><button class="viz-toggle" type="button" id="t-frontier">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-frontier"></figcaption>
+      </figure>
+      <pre data-fill="audit-log"></pre>
+      <div class="prose" data-fill="control-notes"></div>
+    </section>
+    <!--/needs:control-->
+
+    <!--needs:probes-->
+    <section id="probe">
+      <div class="section-head">
+        <span class="agenda">Probe</span>
+        <h2>What the network knows, and what it does</h2>
+      </div>
+      <div class="prose">
+        <p>Linear probes read Qwen2.5-1.5B&rsquo;s residual stream at the last prompt token, at every layer, with 5-fold
+          cross-validation grouped by scenario so no case leaks across folds. Probe 1 reads a judge prompt (case file plus
+          proposed action) and predicts the oracle&rsquo;s verdict, for comparison with the model&rsquo;s own Yes/No answer.
+          Probe 2 reads the <em>agent</em> prompt, before any action exists, and predicts whether doing what the manager
+          asked would break the law. That makes it a candidate pre-action monitor.</p>
+      </div>
+      <figure class="viz" data-chart="probes">
+        <div class="viz-head"><span class="viz-title">Linear legality signal, layer by layer</span><button class="viz-toggle" type="button" id="t-probes">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-probes"></figcaption>
+      </figure>
+      <div class="prose" data-fill="probe-notes"></div>
+    </section>
+    <!--/needs:probes-->
+
+    <!--needs:collusion-->
+    <section id="collude">
+      <div class="section-head">
+        <span class="agenda">Collude</span>
+        <h2>Two pricing agents and the Sherman Act</h2>
+        <p class="question">&ldquo;Legal alignment also helps prevent other safety concerns, such as deception and
+          collusion.&rdquo;</p>
+      </div>
+      <div class="prose">
+        <p>Two LLM pricing agents compete for 20 rounds in the logit-demand Bertrand duopoly of Calvano et al. (2020).
+          The competitive Nash price is <span data-fill="pnash"></span> and the joint-monopoly price is
+          <span data-fill="pmono"></span>. The law draws a sharp line here. An <em>agreement</em> to fix prices is illegal
+          per se under Sherman Act &sect;&nbsp;1. Parallel pricing without agreement is not, by itself, evidence of one
+          (<span class="case">Bell Atlantic Corp. v. Twombly</span>, 550 U.S. 544 (2007)). A monitor therefore has two
+          jobs: catch invitations to collude in the message channel, and flag supra-competitive prices only as a risk
+          signal.</p>
+      </div>
+      <blockquote class="law">
+        <p>&ldquo;Every contract, combination in the form of trust or otherwise, or conspiracy, in restraint of trade or commerce
+          among the several States, or with foreign nations, is declared to be illegal.&rdquo;</p>
+        <cite>15 U.S.C. &sect;&nbsp;1</cite>
+      </blockquote>
+      <figure class="viz" data-chart="collusion">
+        <div class="viz-head"><span class="viz-title">Prices relative to competition and monopoly</span><button class="viz-toggle" type="button" id="t-collusion">Show table</button></div>
+        <div class="viz-legend"></div>
+        <div class="viz-plot"></div>
+        <div class="viz-table"></div>
+        <figcaption data-fill="cap-collusion"></figcaption>
+      </figure>
+      <div class="prose" data-fill="collusion-notes"></div>
+    </section>
+    <!--/needs:collusion-->
+
+    <section id="limits">
+      <div class="section-head">
+        <span class="agenda">Rigor</span>
+        <h2>What this does not show, and what I would do next</h2>
+      </div>
+      <div class="prose" data-fill="audit"></div>
+      <div class="prose">
+        <p><strong>What the numbers do not mean.</strong></p>
+        <ul>
+          <li><strong>The oracle is 32 provisions, not the law.</strong> States other than Florida and Massachusetts are
+            judged on federal law only, Massachusetts&rsquo; rules for third-party collectors (209 CMR 18) are out of
+            scope, and contested cases are excluded rather than resolved. A clean score means no violation of the encoded
+            provisions.</li>
+          <li><strong>Content rules are lexical, and audited.</strong> Threat, disclosure and third-party detectors are
+            regular expressions with negation handling. A hand audit of 53 agent messages found three bugs (conditional
+            negation, inverted word order, an over-strict disclosure test); a second, blind audit of 40 messages from a
+            model the detectors were never tuned on found perfect threat detection but only 5 of 9 firm threats
+            classified as firm. Those misses made the oracle <em>more</em> lenient, because they were set aside as
+            contested. Both gaps are fixed and pinned by regression tests. One violation type is not modeled at all:
+            threatening to tell family or an employer about the debt.</li>
+          <li><strong>Small models, quantized, on a CPU.</strong> Absolute rates say little about frontier systems. The
+            transferable part is the harness, the failure taxonomy and the measurement method; every component takes any
+            model behind the same interface.</li>
+          <li><strong>Small samples.</strong> Eight scenarios per family per model. Every rate carries a Wilson 95% interval,
+            paired comparisons use exact McNemar tests, and nothing is corrected for multiple comparisons, so treat
+            per-family differences as hypotheses.</li>
+          <li><strong>Single decisions.</strong> Each scenario is one decision; long-horizon behaviour (a week of contact attempts against a 7-in-7 budget) is the obvious next environment.</li>
+          <!--needs:grpo--><li><strong>Training is a demonstration.</strong> One GRPO run, one seed, 40 steps, LoRA on a 0.5B model.</li><!--/needs:grpo-->
+          <!--needs:probes--><li><strong>Probes are correlational.</strong> They show the information is linearly present, not that the model
+            uses it. The probed model runs in fp32 while the agent ran as a 4-bit GGUF, so the knowledge&ndash;action
+            comparison crosses a quantization gap.</li><!--/needs:probes-->
+        </ul>
+        <p><strong>What I would do next.</strong></p>
+        <ul>
+          <li>Take one doctrine family end to end (FDCPA and Regulation F, then TCPA, then FCRA): every published opinion
+            on a provision becomes an anchor, ladders are generated along the rule&rsquo;s elements, and lawyers review the
+            anchors and ladders rather than every scenario.</li>
+          <li>Turn the judge section into a protocol: a judge card with AUROC by violation type, robustness probes and
+            calibration, prediction-powered reporting by default, and court-derived labels for the open-textured
+            standards.</li>
+          <li>Train against oracle plus validated-judge rewards, measure the alignment tax explicitly, and test transfer
+            across doctrines rather than only across scenario families.</li>
+          <li>Make pre-action probes the cheapest layer of runtime control, and compile statutes into rule-layer checks
+            with a provenance link from every block back to the quoted text.</li>
+          <li>Build multi-agent environments for collusion and deception where the monitor&rsquo;s job is the legal
+            distinction itself: agreement versus parallelism, puffery versus material misrepresentation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reproduce">
+      <div class="section-head">
+        <span class="agenda">Repo</span>
+        <h2>Reproduce it</h2>
+      </div>
+      <pre>pip install -e .
+python -m lawful.corpus.build        <span class="k"># 15 primary sources -> data/corpus, with URL, sha256, timestamp</span>
+pytest -q                            <span class="k"># <span data-fill="ntests">50</span> tests: verbatim quotes, CFPB worked examples, PPI, Dawid-Skene</span>
+./experiments/run_agent_eval.sh      <span class="k"># TEST sweep (llama.cpp, JSON-schema tool calls)</span>
+python experiments/02_reasoning.py --models qwen2.5-1.5b qwen3-4b
+python experiments/03_court_labels.py --llm qwen2.5-1.5b
+python experiments/04_train_grpo.py --steps 40
+python experiments/05_case2env.py --agents qwen2.5-0.5b qwen3-4b
+python experiments/06_judges.py &amp;&amp; python experiments/07_probes.py
+python experiments/08_control.py &amp;&amp; python experiments/09_collusion.py
+python experiments/analyze.py &amp;&amp; python experiments/build_report.py</pre>
+      <div class="table-wrap"><table class="data sources" data-fill="sources"></table></div>
+    </section>

@@ -1,0 +1,129 @@
+<title>Law-Following Agent Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap">
+<style>/*__STYLE__*/</style>
+
+<div class="page">
+  <nav class="rail" aria-label="Sections">
+    <ol>
+      <li><a href="#findings"><span class="tag">Summary</span><span>Findings</span></a></li>
+      <li><a href="#stack"><span class="tag">Design</span><span>One oracle, many uses</span></a></li>
+      <li><a href="#test"><span class="tag">Test</span><span>Court decisions to environments</span></a></li>
+      <li><a href="#reason"><span class="tag">Reason</span><span>Conflicts, jurisdictions, open texture</span></a></li>
+      <!--needs:judge_any--><li><a href="#judge"><span class="tag">Judge</span><span>Validating model judges</span></a></li><!--/needs:judge_any-->
+      <!--needs:grpo--><li><a href="#train"><span class="tag">Train</span><span>RL from legal feedback</span></a></li><!--/needs:grpo-->
+      <!--needs:control--><li><a href="#control"><span class="tag">Control</span><span>Runtime firewall</span></a></li><!--/needs:control-->
+      <!--needs:probes--><li><a href="#probe"><span class="tag">Probe</span><span>What the network knows</span></a></li><!--/needs:probes-->
+      <!--needs:collusion--><li><a href="#collude"><span class="tag">Collude</span><span>Sherman Act, two agents</span></a></li><!--/needs:collusion-->
+      <li><a href="#limits"><span class="tag">Rigor</span><span>Limits and next steps</span></a></li>
+      <li><a href="#reproduce"><span class="tag">Repo</span><span>Reproduce</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="masthead">
+      <p class="eyebrow">Research prototype · CPU only · October 2026</p>
+      <h1>Law-Following Agent Lab</h1>
+      <p class="lede">A working prototype for law-following AI, grounded in real statutes, regulations and court
+        decisions. It <strong>tests</strong> agents against the law and probes how they <strong>reason</strong> about
+        conflicting, overlapping and open-textured rules. Everything runs on open-weight models (0.5B to 4B parameters) on a
+        four-core CPU, with no API keys.</p>
+      <ul class="spec"><!--__SPEC__--></ul>
+    </header>
+
+    <!--__FINDINGS__-->
+
+    <section id="stack">
+      <div class="section-head">
+        <span class="agenda">Design</span>
+        <h2>One legal oracle, four consumers</h2>
+      </div>
+      <div class="prose">
+        <p>The domain is AI agents that collect consumer debts: a real deployment target, heavily litigated, and governed by
+          overlapping federal and state law that mixes bright lines (&ldquo;before 8:00 a.m.&rdquo;) with open-textured
+          standards (&ldquo;a reasonable period of time&rdquo;, &ldquo;reason to know&rdquo;). Everything hangs off one
+          <strong>legal oracle</strong> that maps a world state and a proposed tool call to cited findings. Each finding
+          carries a certainty: <span class="chip viol">clear</span>, <span class="chip viol">presumed</span> (a rebuttable
+          presumption such as Regulation F&rsquo;s 7-calls-in-7-days rule) or <span class="chip contested">contested</span>
+          (an open-textured standard that no authority resolves on these facts). Metrics count the first two and set
+          contested cases aside instead of guessing.</p>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 980 360" role="img" aria-label="Court opinions are segmented and span-verified into environment specs that seed a scenario generator. Agents act in the environment through a firewall. Every action is labeled by one legal oracle built from quote-verified primary law, and its findings feed eval metrics, judge gold labels, the RL reward and probe labels." style="color: var(--ink)">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          </defs>
+          <g font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="currentColor">
+            <g fill="none" stroke="currentColor" stroke-opacity="0.35">
+              <rect x="20" y="22" width="150" height="50" rx="7"/><rect x="210" y="22" width="170" height="50" rx="7"/>
+              <rect x="420" y="22" width="140" height="50" rx="7"/><rect x="600" y="22" width="190" height="50" rx="7"/>
+              <rect x="20" y="146" width="150" height="58" rx="7"/><rect x="210" y="146" width="170" height="58" rx="7"/>
+              <rect x="420" y="146" width="370" height="58" rx="7"/>
+              <rect x="20" y="276" width="150" height="58" rx="7"/>
+              <rect x="460" y="276" width="118" height="58" rx="7"/><rect x="590" y="276" width="118" height="58" rx="7"/>
+              <rect x="720" y="276" width="118" height="58" rx="7"/><rect x="850" y="276" width="118" height="58" rx="7"/>
+            </g>
+            <rect x="210" y="276" width="170" height="58" rx="7" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <g text-anchor="middle">
+              <text x="95" y="44" font-weight="600">Court opinion</text><text x="95" y="61" font-size="11" fill-opacity="0.7">Caselaw Access Project</text>
+              <text x="295" y="44" font-weight="600">Segment + verify</text><text x="295" y="61" font-size="11" fill-opacity="0.7">court-label classifier, spans</text>
+              <text x="490" y="44" font-weight="600">EnvSpec</text><text x="490" y="61" font-size="11" fill-opacity="0.7">facts, rules, holdings</text>
+              <text x="695" y="44" font-weight="600">Scenario generator</text><text x="695" y="61" font-size="11" fill-opacity="0.7">boundary sweeps, a fortiori ladders</text>
+              <text x="95" y="171" font-weight="600">Agent</text><text x="95" y="188" font-size="11" fill-opacity="0.7">open-weight LLMs</text>
+              <text x="295" y="171" font-weight="600">Firewall</text><text x="295" y="188" font-size="11" fill-opacity="0.7">rules · monitor · audit</text>
+              <text x="605" y="171" font-weight="600">Environment</text><text x="605" y="188" font-size="11" fill-opacity="0.7">system of record, simulated consumer, coworker, manager</text>
+              <text x="95" y="301" font-weight="600">Primary law</text><text x="95" y="318" font-size="11" fill-opacity="0.7">15 sources, sha256</text>
+              <text x="295" y="301" font-weight="600" fill="var(--accent)">Legal oracle</text><text x="295" y="318" font-size="11" fill-opacity="0.7">32 provisions, certainty</text>
+              <text x="519" y="301" font-weight="600">Eval metrics</text><text x="519" y="318" font-size="11" fill-opacity="0.7">Test</text>
+              <text x="649" y="301" font-weight="600">Judge gold</text><text x="649" y="318" font-size="11" fill-opacity="0.7">Judge</text>
+              <text x="779" y="301" font-weight="600">GRPO reward</text><text x="779" y="318" font-size="11" fill-opacity="0.7">Train</text>
+              <text x="909" y="301" font-weight="600">Probe labels</text><text x="909" y="318" font-size="11" fill-opacity="0.7">Probe</text>
+            </g>
+            <g stroke="currentColor" stroke-width="1.3" fill="none" marker-end="url(#arr)">
+              <line x1="170" y1="47" x2="206" y2="47"/><line x1="380" y1="47" x2="416" y2="47"/><line x1="560" y1="47" x2="596" y2="47"/>
+              <line x1="695" y1="72" x2="695" y2="142"/>
+              <path d="M420,152 C330,96 190,96 140,142"/>
+              <line x1="170" y1="186" x2="206" y2="186"/><line x1="380" y1="186" x2="416" y2="186"/>
+              <line x1="170" y1="305" x2="206" y2="305"/>
+              <path d="M520,204 V244 H340 V272"/>
+              <line x1="380" y1="305" x2="456" y2="305"/>
+            </g>
+            <line x1="295" y1="272" x2="295" y2="208" stroke="currentColor" stroke-width="1.3" stroke-dasharray="0" marker-end="url(#arr)"/>
+            <g font-size="11" fill-opacity="0.75">
+              <text x="188" y="40" text-anchor="middle">paras</text><text x="398" y="40" text-anchor="middle">facts</text>
+              <text x="578" y="40" text-anchor="middle">seed</text><text x="703" y="112">scenarios</text>
+              <text x="280" y="102" text-anchor="middle">case file</text>
+              <text x="188" y="180" text-anchor="middle">tool call</text><text x="398" y="202" text-anchor="middle">allow/fix</text>
+              <text x="188" y="298" text-anchor="middle">quotes</text>
+              <text x="430" y="234" text-anchor="middle">every (state, action)</text>
+              <text x="287" y="244" text-anchor="end">structured facts only</text>
+              <text x="418" y="298" text-anchor="middle">findings</text>
+            </g>
+          </g>
+        </svg>
+        <figcaption><strong>Where the labels come from.</strong> One oracle, built from quote-verified primary law, labels every
+          action. Its findings are the eval metric, the gold standard for judges, the RL reward and the probe target. The
+          firewall reuses it but sees only the structured system of record, so facts that live in free-text notes are
+          invisible to it by design.</figcaption>
+      </figure>
+    </section>
+
+    <!--__SECTIONS__-->
+
+    <footer>
+      <p>Open-weight models only (Qwen2.5, Gemma 3, Llama 3.2, Phi-4 and Qwen3 families), quantized and served with
+        llama.cpp; Qwen3Guard 0.6B, Qwen2.5 0.5B/1.5B and bge-small via Transformers. No API keys and no proprietary model calls. Statutory text is quoted from official publishers;
+        nothing here is legal advice.</p>
+    </footer>
+  </main>
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>(() => {
+/*__VIZ__*/
+})();</script>
+<script>(() => {
+/*__PAGE__*/
+})();</script>

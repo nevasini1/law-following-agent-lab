@@ -1,0 +1,1331 @@
+{
+ "ecthr_curve": [
+  {
+   "judge": "tfidf+lr",
+   "n_train": 50,
+   "seed": 0,
+   "auroc": 0.9066277833232209,
+   "f1": 0.0
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 50,
+   "seed": 0,
+   "auroc": 0.7701185420051018,
+   "f1": 0.4260089686098655
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 50,
+   "seed": 1,
+   "auroc": 0.8781959694413456,
+   "f1": 0.06153846153846154
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 50,
+   "seed": 1,
+   "auroc": 0.8648184030428173,
+   "f1": 0.5943775100401606
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 50,
+   "seed": 2,
+   "auroc": 0.9169945002250798,
+   "f1": 0.0
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 50,
+   "seed": 2,
+   "auroc": 0.8376294208600004,
+   "f1": 0.5444234404536862
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 100,
+   "seed": 0,
+   "auroc": 0.9132953633570157,
+   "f1": 0.205607476635514
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 100,
+   "seed": 0,
+   "auroc": 0.8146908578474547,
+   "f1": 0.5061511423550088
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 100,
+   "seed": 1,
+   "auroc": 0.9249734144925267,
+   "f1": 0.18095238095238095
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 100,
+   "seed": 1,
+   "auroc": 0.8470175301248052,
+   "f1": 0.5144694533762058
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 100,
+   "seed": 2,
+   "auroc": 0.9258280651622206,
+   "f1": 0.15458937198067632
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 100,
+   "seed": 2,
+   "auroc": 0.8399519829852752,
+   "f1": 0.5214521452145214
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 200,
+   "seed": 0,
+   "auroc": 0.905329497191396,
+   "f1": 0.5124555160142349
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 200,
+   "seed": 0,
+   "auroc": 0.8264015292375342,
+   "f1": 0.5025125628140703
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 200,
+   "seed": 1,
+   "auroc": 0.9299512653396746,
+   "f1": 0.5185185185185185
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 200,
+   "seed": 1,
+   "auroc": 0.8472132516522158,
+   "f1": 0.5135566188197768
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 200,
+   "seed": 2,
+   "auroc": 0.9371472934974785,
+   "f1": 0.6122448979591837
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 200,
+   "seed": 2,
+   "auroc": 0.8439381780935419,
+   "f1": 0.49504950495049505
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 500,
+   "seed": 0,
+   "auroc": 0.9392676100444287,
+   "f1": 0.7034120734908137
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 500,
+   "seed": 0,
+   "auroc": 0.8781242048812948,
+   "f1": 0.5704918032786885
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 500,
+   "seed": 1,
+   "auroc": 0.9461961521147711,
+   "f1": 0.7213114754098361
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 500,
+   "seed": 1,
+   "auroc": 0.842124491939535,
+   "f1": 0.5168539325842697
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 500,
+   "seed": 2,
+   "auroc": 0.9453023571395951,
+   "f1": 0.7158469945355191
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 500,
+   "seed": 2,
+   "auroc": 0.860528839567064,
+   "f1": 0.5337726523887973
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 1000,
+   "seed": 0,
+   "auroc": 0.9532290789997324,
+   "f1": 0.7609756097560976
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 1000,
+   "seed": 0,
+   "auroc": 0.8579648875579825,
+   "f1": 0.5209302325581395
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 1000,
+   "seed": 1,
+   "auroc": 0.9460330508419287,
+   "f1": 0.7116883116883117
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 1000,
+   "seed": 1,
+   "auroc": 0.8548920595776329,
+   "f1": 0.5199362041467305
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 1000,
+   "seed": 2,
+   "auroc": 0.9506520788888236,
+   "f1": 0.736
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 1000,
+   "seed": 2,
+   "auroc": 0.8459019174185636,
+   "f1": 0.5
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 2000,
+   "seed": 0,
+   "auroc": 0.9595639324369287,
+   "f1": 0.7494033412887828
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 2000,
+   "seed": 0,
+   "auroc": 0.8751492376646507,
+   "f1": 0.5206738131699847
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 2000,
+   "seed": 1,
+   "auroc": 0.95741099563541,
+   "f1": 0.7555555555555555
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 2000,
+   "seed": 1,
+   "auroc": 0.8712804754728306,
+   "f1": 0.5396825396825397
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 2000,
+   "seed": 2,
+   "auroc": 0.9583243627633271,
+   "f1": 0.7481662591687042
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 2000,
+   "seed": 2,
+   "auroc": 0.8772956504152558,
+   "f1": 0.5478119935170178
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 4000,
+   "seed": 0,
+   "auroc": 0.966877393511179,
+   "f1": 0.780952380952381
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 4000,
+   "seed": 0,
+   "auroc": 0.8895739142348267,
+   "f1": 0.5527156549520766
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 4000,
+   "seed": 1,
+   "auroc": 0.9683779252213284,
+   "f1": 0.7942583732057417
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 4000,
+   "seed": 1,
+   "auroc": 0.8844655823694048,
+   "f1": 0.5426356589147286
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 4000,
+   "seed": 2,
+   "auroc": 0.9654747225647349,
+   "f1": 0.7745098039215687
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 4000,
+   "seed": 2,
+   "auroc": 0.8839697544999642,
+   "f1": 0.546031746031746
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 9000,
+   "seed": 0,
+   "auroc": 0.9714833734562465,
+   "f1": 0.7971360381861575
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 9000,
+   "seed": 0,
+   "auroc": 0.8953150790388769,
+   "f1": 0.5564648117839607
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 9000,
+   "seed": 1,
+   "auroc": 0.9714833734562465,
+   "f1": 0.7971360381861575
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 9000,
+   "seed": 1,
+   "auroc": 0.8953216030897906,
+   "f1": 0.5564648117839607
+  },
+  {
+   "judge": "tfidf+lr",
+   "n_train": 9000,
+   "seed": 2,
+   "auroc": 0.9714833734562465,
+   "f1": 0.7971360381861575
+  },
+  {
+   "judge": "bge-small+lr",
+   "n_train": 9000,
+   "seed": 2,
+   "auroc": 0.8953216030897906,
+   "f1": 0.5564648117839607
+  }
+ ],
+ "fods_trained": {
+  "tfidf+lr": {
+   "accuracy": 0.5177111716621253,
+   "macro_f1": 0.5107904179462853,
+   "n": 367
+  },
+  "bge-small+lr": {
+   "accuracy": 0.44686648501362397,
+   "macro_f1": 0.44224441667968073,
+   "n": 367
+  }
+ },
+ "ecthr_meta": {
+  "train": 9000,
+  "test": 1000,
+  "train_pos": 0.14988888888888888,
+  "test_pos": 0.189
+ },
+ "ecthr_llm": {
+  "qwen2.5-1.5b": [
+   {
+    "idx": 845,
+    "y": 1,
+    "p": 0.6891067903684404
+   },
+   {
+    "idx": 996,
+    "y": 1,
+    "p": 0.8519173000910065
+   },
+   {
+    "idx": 555,
+    "y": 1,
+    "p": 0.8608270015669012
+   },
+   {
+    "idx": 588,
+    "y": 1,
+    "p": 0.6432912097176215
+   },
+   {
+    "idx": 781,
+    "y": 1,
+    "p": 0.7471335421962846
+   },
+   {
+    "idx": 83,
+    "y": 1,
+    "p": 0.6136106242694466
+   },
+   {
+    "idx": 15,
+    "y": 1,
+    "p": 0.8962983805716331
+   },
+   {
+    "idx": 871,
+    "y": 1,
+    "p": 0.8794191870726256
+   },
+   {
+    "idx": 739,
+    "y": 1,
+    "p": 0.8712155126585643
+   },
+   {
+    "idx": 269,
+    "y": 1,
+    "p": 0.8159277415601383
+   },
+   {
+    "idx": 29,
+    "y": 1,
+    "p": 0.8187850659431677
+   },
+   {
+    "idx": 605,
+    "y": 1,
+    "p": 0.8076853335248276
+   },
+   {
+    "idx": 25,
+    "y": 1,
+    "p": 0.640950906966167
+   },
+   {
+    "idx": 172,
+    "y": 1,
+    "p": 0.7179382845949496
+   },
+   {
+    "idx": 453,
+    "y": 1,
+    "p": 0.9109839060920547
+   },
+   {
+    "idx": 874,
+    "y": 1,
+    "p": 0.6912923291953094
+   },
+   {
+    "idx": 60,
+    "y": 1,
+    "p": 0.9751517898769345
+   },
+   {
+    "idx": 27,
+    "y": 1,
+    "p": 0.8210218129786265
+   },
+   {
+    "idx": 86,
+    "y": 1,
+    "p": 0.8497654636292968
+   },
+   {
+    "idx": 476,
+    "y": 1,
+    "p": 0.7858412612493789
+   },
+   {
+    "idx": 573,
+    "y": 1,
+    "p": 0.931032443824267
+   },
+   {
+    "idx": 843,
+    "y": 1,
+    "p": 0.7694986563820669
+   },
+   {
+    "idx": 696,
+    "y": 1,
+    "p": 0.3360745803146647
+   },
+   {
+    "idx": 737,
+    "y": 1,
+    "p": 0.7225547242703632
+   },
+   {
+    "idx": 415,
+    "y": 1,
+    "p": 0.6413189380616272
+   },
+   {
+    "idx": 925,
+    "y": 1,
+    "p": 0.7629349281393947
+   },
+   {
+    "idx": 566,
+    "y": 1,
+    "p": 0.7973711730801201
+   },
+   {
+    "idx": 490,
+    "y": 1,
+    "p": 0.9018024156007272
+   },
+   {
+    "idx": 830,
+    "y": 1,
+    "p": 0.48770913642335517
+   },
+   {
+    "idx": 661,
+    "y": 1,
+    "p": 0.8198364682717808
+   },
+   {
+    "idx": 872,
+    "y": 1,
+    "p": 0.8980112856590745
+   },
+   {
+    "idx": 145,
+    "y": 1,
+    "p": 0.7787951686910864
+   },
+   {
+    "idx": 793,
+    "y": 1,
+    "p": 0.7673421869872876
+   },
+   {
+    "idx": 524,
+    "y": 1,
+    "p": 0.7168902037091471
+   },
+   {
+    "idx": 5,
+    "y": 1,
+    "p": 0.8043636402957635
+   },
+   {
+    "idx": 366,
+    "y": 1,
+    "p": 0.7983029242799659
+   },
+   {
+    "idx": 307,
+    "y": 1,
+    "p": 0.6781632761664026
+   },
+   {
+    "idx": 733,
+    "y": 1,
+    "p": 0.7596641393743314
+   },
+   {
+    "idx": 557,
+    "y": 1,
+    "p": 0.8682463444628853
+   },
+   {
+    "idx": 608,
+    "y": 1,
+    "p": 0.8258459280433138
+   },
+   {
+    "idx": 377,
+    "y": 0,
+    "p": 0.8937997488784474
+   },
+   {
+    "idx": 362,
+    "y": 0,
+    "p": 0.7449167242576288
+   },
+   {
+    "idx": 56,
+    "y": 0,
+    "p": 0.3286960036164444
+   },
+   {
+    "idx": 762,
+    "y": 0,
+    "p": 0.3664538839545392
+   },
+   {
+    "idx": 297,
+    "y": 0,
+    "p": 0.7638202093225027
+   },
+   {
+    "idx": 886,
+    "y": 0,
+    "p": 0.6301916650251443
+   },
+   {
+    "idx": 593,
+    "y": 0,
+    "p": 0.7011984033599733
+   },
+   {
+    "idx": 437,
+    "y": 0,
+    "p": 0.47385786560460386
+   },
+   {
+    "idx": 327,
+    "y": 0,
+    "p": 0.29940056896925465
+   },
+   {
+    "idx": 294,
+    "y": 0,
+    "p": 0.2695592663063083
+   },
+   {
+    "idx": 354,
+    "y": 0,
+    "p": 0.22824294799893055
+   },
+   {
+    "idx": 47,
+    "y": 0,
+    "p": 0.7073356007081935
+   },
+   {
+    "idx": 149,
+    "y": 0,
+    "p": 0.7805106394587262
+   },
+   {
+    "idx": 690,
+    "y": 0,
+    "p": 0.13598740252839184
+   },
+   {
+    "idx": 559,
+    "y": 0,
+    "p": 0.8440556132622337
+   },
+   {
+    "idx": 213,
+    "y": 0,
+    "p": 0.1495685889204685
+   },
+   {
+    "idx": 851,
+    "y": 0,
+    "p": 0.7845675752217856
+   },
+   {
+    "idx": 302,
+    "y": 0,
+    "p": 0.7307979921065377
+   },
+   {
+    "idx": 720,
+    "y": 0,
+    "p": 0.7226283309799765
+   },
+   {
+    "idx": 753,
+    "y": 0,
+    "p": 0.850676311972256
+   },
+   {
+    "idx": 244,
+    "y": 0,
+    "p": 0.44405835648723657
+   },
+   {
+    "idx": 651,
+    "y": 0,
+    "p": 0.68056902449159
+   },
+   {
+    "idx": 628,
+    "y": 0,
+    "p": 0.7015557285673754
+   },
+   {
+    "idx": 221,
+    "y": 0,
+    "p": 0.30251576169024974
+   },
+   {
+    "idx": 317,
+    "y": 0,
+    "p": 0.7792971763996523
+   },
+   {
+    "idx": 675,
+    "y": 0,
+    "p": 0.9403222615332323
+   },
+   {
+    "idx": 225,
+    "y": 0,
+    "p": 0.6191987670893986
+   },
+   {
+    "idx": 554,
+    "y": 0,
+    "p": 0.8737819183861637
+   },
+   {
+    "idx": 854,
+    "y": 0,
+    "p": 0.5928555308775837
+   },
+   {
+    "idx": 311,
+    "y": 0,
+    "p": 0.4566345062787934
+   },
+   {
+    "idx": 76,
+    "y": 0,
+    "p": 0.5363348452588177
+   },
+   {
+    "idx": 80,
+    "y": 0,
+    "p": 0.725932642378074
+   },
+   {
+    "idx": 802,
+    "y": 0,
+    "p": 0.4248268567396268
+   },
+   {
+    "idx": 233,
+    "y": 0,
+    "p": 0.9057313524829331
+   },
+   {
+    "idx": 842,
+    "y": 0,
+    "p": 0.5097287212172783
+   },
+   {
+    "idx": 471,
+    "y": 0,
+    "p": 0.5274779352493184
+   },
+   {
+    "idx": 779,
+    "y": 0,
+    "p": 0.6860513714701615
+   },
+   {
+    "idx": 678,
+    "y": 0,
+    "p": 0.3589897586910469
+   },
+   {
+    "idx": 756,
+    "y": 0,
+    "p": 0.7904093421935859
+   },
+   {
+    "idx": 533,
+    "y": 0,
+    "p": 0.8729188848540119
+   }
+  ]
+ },
+ "fods_llm": {
+  "qwen2.5-1.5b": {
+   "accuracy": 0.16428571428571428,
+   "macro_f1": 0.09802761837645559,
+   "n": 140,
+   "pairs": [
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Decree"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Facts",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Conclusion"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Issue"
+    ],
+    [
+     "Procedural History",
+     "Decree"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Conclusion"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Decree"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Conclusion"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Issue"
+    ],
+    [
+     "Issue",
+     "Conclusion"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Procedural History"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Decree"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Rule",
+     "Rule"
+    ],
+    [
+     "Rule",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Conclusion"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Decree"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Analysis",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Conclusion"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Conclusion"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Decree"
+    ],
+    [
+     "Conclusion",
+     "Rule"
+    ],
+    [
+     "Conclusion",
+     "Decree"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Conclusion",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Decree"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Decree"
+    ],
+    [
+     "Decree",
+     "Conclusion"
+    ],
+    [
+     "Decree",
+     "Decree"
+    ],
+    [
+     "Decree",
+     "Decree"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Conclusion"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Conclusion"
+    ],
+    [
+     "Decree",
+     "Conclusion"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ],
+    [
+     "Decree",
+     "Conclusion"
+    ],
+    [
+     "Decree",
+     "Issue"
+    ]
+   ]
+  }
+ }
+}

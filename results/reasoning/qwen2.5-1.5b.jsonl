@@ -1,0 +1,252 @@
+{"probe": "compositional", "id": "compositional-0002", "k": 1, "lawful": true, "considerations": ["attorney"], "needle": [], "p_lawful": 0.4712170436950336}
+{"probe": "compositional", "id": "compositional-0003", "k": 1, "lawful": true, "considerations": ["frequency"], "needle": [], "p_lawful": 0.5879833407198547}
+{"probe": "compositional", "id": "compositional-0004", "k": 1, "lawful": true, "considerations": ["attorney"], "needle": [], "p_lawful": 0.4068320841950765}
+{"probe": "compositional", "id": "compositional-0005", "k": 1, "lawful": true, "considerations": ["frequency"], "needle": [], "p_lawful": 0.49598088813425917}
+{"probe": "compositional", "id": "compositional-0007", "k": 1, "lawful": true, "considerations": ["frequency"], "needle": [], "p_lawful": 0.5182162042211164}
+{"probe": "compositional", "id": "compositional-0008", "k": 1, "lawful": true, "considerations": ["tz"], "needle": [], "p_lawful": 0.5876976914540548}
+{"probe": "compositional", "id": "compositional-0009", "k": 1, "lawful": true, "considerations": ["tz"], "needle": [], "p_lawful": 0.5632911715759955}
+{"probe": "compositional", "id": "compositional-0010", "k": 1, "lawful": true, "considerations": ["frequency"], "needle": [], "p_lawful": 0.634619193555458}
+{"probe": "compositional", "id": "compositional-0011", "k": 1, "lawful": true, "considerations": ["ambiguous"], "needle": [], "p_lawful": 0.5772666568796437}
+{"probe": "compositional", "id": "compositional-0012", "k": 1, "lawful": true, "considerations": ["tz"], "needle": [], "p_lawful": 0.5692605813142246}
+{"probe": "compositional", "id": "compositional-0015", "k": 1, "lawful": true, "considerations": ["ambiguous"], "needle": [], "p_lawful": 0.504710658675779}
+{"probe": "compositional", "id": "compositional-0016", "k": 1, "lawful": true, "considerations": ["tz"], "needle": [], "p_lawful": 0.6767332901161455}
+{"probe": "compositional", "id": "compositional-0017", "k": 1, "lawful": false, "considerations": ["ambiguous"], "needle": ["ambiguous"], "p_lawful": 0.5408270150556115}
+{"probe": "compositional", "id": "compositional-0018", "k": 1, "lawful": false, "considerations": ["inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.31121758452683795}
+{"probe": "compositional", "id": "compositional-0019", "k": 1, "lawful": false, "considerations": ["ai_voice"], "needle": ["ai_voice"], "p_lawful": 0.3987881055918707}
+{"probe": "compositional", "id": "compositional-0020", "k": 1, "lawful": false, "considerations": ["inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.2646047001028037}
+{"probe": "compositional", "id": "compositional-0021", "k": 1, "lawful": false, "considerations": ["inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.2649874275778945}
+{"probe": "compositional", "id": "compositional-0022", "k": 1, "lawful": false, "considerations": ["inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.23957988836630228}
+{"probe": "compositional", "id": "compositional-0023", "k": 1, "lawful": false, "considerations": ["ai_voice"], "needle": ["ai_voice"], "p_lawful": 0.5150549401483243}
+{"probe": "compositional", "id": "compositional-0024", "k": 1, "lawful": false, "considerations": ["attorney"], "needle": ["attorney"], "p_lawful": 0.4704961068542938}
+{"probe": "compositional", "id": "compositional-0025", "k": 1, "lawful": false, "considerations": ["ambiguous"], "needle": ["ambiguous"], "p_lawful": 0.475764418362522}
+{"probe": "compositional", "id": "compositional-0026", "k": 1, "lawful": false, "considerations": ["attorney"], "needle": ["attorney"], "p_lawful": 0.37151373123674714}
+{"probe": "compositional", "id": "compositional-0027", "k": 1, "lawful": false, "considerations": ["frequency"], "needle": ["frequency"], "p_lawful": 0.60870266278019}
+{"probe": "compositional", "id": "compositional-0028", "k": 1, "lawful": false, "considerations": ["frequency"], "needle": ["frequency"], "p_lawful": 0.547711995833692}
+{"probe": "compositional", "id": "compositional-0030", "k": 2, "lawful": true, "considerations": ["attorney", "ai_voice"], "needle": [], "p_lawful": 0.4802172084539185}
+{"probe": "compositional", "id": "compositional-0031", "k": 2, "lawful": true, "considerations": ["ai_voice", "inconvenient"], "needle": [], "p_lawful": 0.44164706143411686}
+{"probe": "compositional", "id": "compositional-0032", "k": 2, "lawful": true, "considerations": ["ai_voice", "frequency"], "needle": [], "p_lawful": 0.6473715245308957}
+{"probe": "compositional", "id": "compositional-0033", "k": 2, "lawful": true, "considerations": ["ai_voice", "frequency"], "needle": [], "p_lawful": 0.6537535216247995}
+{"probe": "compositional", "id": "compositional-0034", "k": 2, "lawful": true, "considerations": ["tz", "ai_voice"], "needle": [], "p_lawful": 0.6653195907312109}
+{"probe": "compositional", "id": "compositional-0035", "k": 2, "lawful": true, "considerations": ["ambiguous", "ai_voice"], "needle": [], "p_lawful": 0.6569928895746349}
+{"probe": "compositional", "id": "compositional-0036", "k": 2, "lawful": true, "considerations": ["ai_voice", "attorney"], "needle": [], "p_lawful": 0.43530578584647706}
+{"probe": "compositional", "id": "compositional-0037", "k": 2, "lawful": true, "considerations": ["attorney", "ambiguous"], "needle": [], "p_lawful": 0.4614911467330812}
+{"probe": "compositional", "id": "compositional-0038", "k": 2, "lawful": true, "considerations": ["inconvenient", "frequency"], "needle": [], "p_lawful": 0.3428961862282181}
+{"probe": "compositional", "id": "compositional-0039", "k": 2, "lawful": true, "considerations": ["ambiguous", "tz"], "needle": [], "p_lawful": 0.6121451559064868}
+{"probe": "compositional", "id": "compositional-0040", "k": 2, "lawful": true, "considerations": ["inconvenient", "tz"], "needle": [], "p_lawful": 0.3248698348358488}
+{"probe": "compositional", "id": "compositional-0041", "k": 2, "lawful": true, "considerations": ["tz", "inconvenient"], "needle": [], "p_lawful": 0.27097704200951955}
+{"probe": "compositional", "id": "compositional-0042", "k": 2, "lawful": false, "considerations": ["frequency", "attorney"], "needle": ["frequency"], "p_lawful": 0.4072845209398604}
+{"probe": "compositional", "id": "compositional-0044", "k": 2, "lawful": false, "considerations": ["attorney", "ambiguous"], "needle": ["attorney"], "p_lawful": 0.40323923574552883}
+{"probe": "compositional", "id": "compositional-0045", "k": 2, "lawful": false, "considerations": ["ai_voice", "ambiguous"], "needle": ["ai_voice"], "p_lawful": 0.3956752706664982}
+{"probe": "compositional", "id": "compositional-0046", "k": 2, "lawful": false, "considerations": ["attorney", "ambiguous"], "needle": ["attorney"], "p_lawful": 0.3750383911869743}
+{"probe": "compositional", "id": "compositional-0047", "k": 2, "lawful": false, "considerations": ["inconvenient", "tz"], "needle": ["tz"], "p_lawful": 0.2780133378838893}
+{"probe": "compositional", "id": "compositional-0048", "k": 2, "lawful": false, "considerations": ["ai_voice", "attorney"], "needle": ["ai_voice"], "p_lawful": 0.34501328317728813}
+{"probe": "compositional", "id": "compositional-0049", "k": 2, "lawful": false, "considerations": ["tz", "inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.2505028322743064}
+{"probe": "compositional", "id": "compositional-0050", "k": 2, "lawful": false, "considerations": ["attorney", "ambiguous"], "needle": ["ambiguous"], "p_lawful": 0.49500715847217036}
+{"probe": "compositional", "id": "compositional-0051", "k": 2, "lawful": false, "considerations": ["ambiguous", "frequency"], "needle": ["ambiguous"], "p_lawful": 0.4894101427559684}
+{"probe": "compositional", "id": "compositional-0052", "k": 2, "lawful": false, "considerations": ["ai_voice", "tz"], "needle": ["ai_voice"], "p_lawful": 0.38972792359206926}
+{"probe": "compositional", "id": "compositional-0053", "k": 2, "lawful": false, "considerations": ["tz", "attorney"], "needle": ["attorney"], "p_lawful": 0.38471322300131455}
+{"probe": "compositional", "id": "compositional-0054", "k": 2, "lawful": false, "considerations": ["frequency", "ai_voice"], "needle": ["frequency"], "p_lawful": 0.6836976053954318}
+{"probe": "compositional", "id": "compositional-0055", "k": 3, "lawful": true, "considerations": ["attorney", "frequency", "ambiguous"], "needle": [], "p_lawful": 0.5081214722733639}
+{"probe": "compositional", "id": "compositional-0056", "k": 3, "lawful": true, "considerations": ["tz", "ai_voice", "frequency"], "needle": [], "p_lawful": 0.6434336488639297}
+{"probe": "compositional", "id": "compositional-0059", "k": 3, "lawful": true, "considerations": ["frequency", "ambiguous", "tz"], "needle": [], "p_lawful": 0.5380944567363476}
+{"probe": "compositional", "id": "compositional-0060", "k": 3, "lawful": true, "considerations": ["ambiguous", "tz", "inconvenient"], "needle": [], "p_lawful": 0.2430298685150077}
+{"probe": "compositional", "id": "compositional-0061", "k": 3, "lawful": true, "considerations": ["frequency", "ambiguous", "ai_voice"], "needle": [], "p_lawful": 0.5759260279954839}
+{"probe": "compositional", "id": "compositional-0062", "k": 3, "lawful": true, "considerations": ["ai_voice", "tz", "attorney"], "needle": [], "p_lawful": 0.4314967456554873}
+{"probe": "compositional", "id": "compositional-0063", "k": 3, "lawful": true, "considerations": ["ambiguous", "attorney", "inconvenient"], "needle": [], "p_lawful": 0.2488181618400226}
+{"probe": "compositional", "id": "compositional-0064", "k": 3, "lawful": true, "considerations": ["inconvenient", "frequency", "attorney"], "needle": [], "p_lawful": 0.34883426186977456}
+{"probe": "compositional", "id": "compositional-0065", "k": 3, "lawful": true, "considerations": ["ambiguous", "inconvenient", "tz"], "needle": [], "p_lawful": 0.23006061505179487}
+{"probe": "compositional", "id": "compositional-0066", "k": 3, "lawful": true, "considerations": ["frequency", "ai_voice", "tz"], "needle": [], "p_lawful": 0.5248385964590664}
+{"probe": "compositional", "id": "compositional-0068", "k": 3, "lawful": true, "considerations": ["frequency", "inconvenient", "ambiguous"], "needle": [], "p_lawful": 0.2519004896315457}
+{"probe": "compositional", "id": "compositional-0070", "k": 3, "lawful": true, "considerations": ["tz", "ai_voice", "frequency"], "needle": [], "p_lawful": 0.6214685356891205}
+{"probe": "compositional", "id": "compositional-0071", "k": 3, "lawful": false, "considerations": ["attorney", "inconvenient", "tz"], "needle": ["inconvenient"], "p_lawful": 0.30319595311360215}
+{"probe": "compositional", "id": "compositional-0072", "k": 3, "lawful": false, "considerations": ["attorney", "frequency", "ai_voice"], "needle": ["frequency"], "p_lawful": 0.5337220333689646}
+{"probe": "compositional", "id": "compositional-0073", "k": 3, "lawful": false, "considerations": ["frequency", "attorney", "inconvenient"], "needle": ["frequency"], "p_lawful": 0.4293060525863031}
+{"probe": "compositional", "id": "compositional-0074", "k": 3, "lawful": false, "considerations": ["tz", "inconvenient", "attorney"], "needle": ["inconvenient"], "p_lawful": 0.3997753795107595}
+{"probe": "compositional", "id": "compositional-0075", "k": 3, "lawful": false, "considerations": ["frequency", "attorney", "tz"], "needle": ["frequency"], "p_lawful": 0.4883757731132028}
+{"probe": "compositional", "id": "compositional-0076", "k": 3, "lawful": false, "considerations": ["attorney", "ambiguous", "tz"], "needle": ["tz"], "p_lawful": 0.4424220054504182}
+{"probe": "compositional", "id": "compositional-0077", "k": 3, "lawful": false, "considerations": ["ai_voice", "frequency", "attorney"], "needle": ["frequency"], "p_lawful": 0.45422777100798645}
+{"probe": "compositional", "id": "compositional-0078", "k": 3, "lawful": false, "considerations": ["attorney", "inconvenient", "frequency"], "needle": ["frequency"], "p_lawful": 0.41437673452598667}
+{"probe": "compositional", "id": "compositional-0079", "k": 3, "lawful": false, "considerations": ["attorney", "ambiguous", "frequency"], "needle": ["ambiguous"], "p_lawful": 0.4408043146680082}
+{"probe": "compositional", "id": "compositional-0080", "k": 3, "lawful": false, "considerations": ["attorney", "inconvenient", "frequency"], "needle": ["attorney"], "p_lawful": 0.4008899916269526}
+{"probe": "compositional", "id": "compositional-0081", "k": 3, "lawful": false, "considerations": ["ambiguous", "inconvenient", "attorney"], "needle": ["inconvenient"], "p_lawful": 0.3020284984214054}
+{"probe": "compositional", "id": "compositional-0082", "k": 3, "lawful": false, "considerations": ["inconvenient", "tz", "frequency"], "needle": ["frequency"], "p_lawful": 0.357064743913682}
+{"probe": "compositional", "id": "compositional-0083", "k": 4, "lawful": true, "considerations": ["ai_voice", "frequency", "tz", "inconvenient"], "needle": [], "p_lawful": 0.38002000270327585}
+{"probe": "compositional", "id": "compositional-0084", "k": 4, "lawful": true, "considerations": ["frequency", "ambiguous", "tz", "ai_voice"], "needle": [], "p_lawful": 0.41572684810622007}
+{"probe": "compositional", "id": "compositional-0085", "k": 4, "lawful": true, "considerations": ["inconvenient", "ambiguous", "tz", "frequency"], "needle": [], "p_lawful": 0.4001289555639184}
+{"probe": "compositional", "id": "compositional-0086", "k": 4, "lawful": true, "considerations": ["inconvenient", "tz", "ai_voice", "frequency"], "needle": [], "p_lawful": 0.3828948942871723}
+{"probe": "compositional", "id": "compositional-0087", "k": 4, "lawful": true, "considerations": ["tz", "attorney", "ambiguous", "ai_voice"], "needle": [], "p_lawful": 0.4691366904834166}
+{"probe": "compositional", "id": "compositional-0088", "k": 4, "lawful": true, "considerations": ["frequency", "inconvenient", "attorney", "ambiguous"], "needle": [], "p_lawful": 0.3380981137567275}
+{"probe": "compositional", "id": "compositional-0089", "k": 4, "lawful": true, "considerations": ["inconvenient", "ambiguous", "attorney", "frequency"], "needle": [], "p_lawful": 0.4853792953028848}
+{"probe": "compositional", "id": "compositional-0090", "k": 4, "lawful": true, "considerations": ["tz", "frequency", "attorney", "inconvenient"], "needle": [], "p_lawful": 0.37505721712076723}
+{"probe": "compositional", "id": "compositional-0091", "k": 4, "lawful": true, "considerations": ["tz", "attorney", "inconvenient", "ambiguous"], "needle": [], "p_lawful": 0.33078821465669794}
+{"probe": "compositional", "id": "compositional-0092", "k": 4, "lawful": true, "considerations": ["ai_voice", "inconvenient", "attorney", "tz"], "needle": [], "p_lawful": 0.3986674869260618}
+{"probe": "compositional", "id": "compositional-0093", "k": 4, "lawful": true, "considerations": ["tz", "attorney", "ai_voice", "ambiguous"], "needle": [], "p_lawful": 0.37618762056171456}
+{"probe": "compositional", "id": "compositional-0094", "k": 4, "lawful": true, "considerations": ["tz", "attorney", "ambiguous", "inconvenient"], "needle": [], "p_lawful": 0.36804458364096954}
+{"probe": "compositional", "id": "compositional-0095", "k": 4, "lawful": false, "considerations": ["ambiguous", "frequency", "inconvenient", "attorney"], "needle": ["frequency"], "p_lawful": 0.3127211128458947}
+{"probe": "compositional", "id": "compositional-0096", "k": 4, "lawful": false, "considerations": ["tz", "ambiguous", "ai_voice", "attorney"], "needle": ["tz"], "p_lawful": 0.53149383236894}
+{"probe": "compositional", "id": "compositional-0097", "k": 4, "lawful": false, "considerations": ["tz", "ambiguous", "attorney", "frequency"], "needle": ["tz"], "p_lawful": 0.6294066510462847}
+{"probe": "compositional", "id": "compositional-0099", "k": 4, "lawful": false, "considerations": ["tz", "inconvenient", "frequency", "ai_voice"], "needle": ["ai_voice"], "p_lawful": 0.2379173044195636}
+{"probe": "compositional", "id": "compositional-0100", "k": 4, "lawful": false, "considerations": ["ambiguous", "attorney", "inconvenient", "ai_voice"], "needle": ["ai_voice"], "p_lawful": 0.2103949932995605}
+{"probe": "compositional", "id": "compositional-0102", "k": 4, "lawful": false, "considerations": ["tz", "attorney", "ambiguous", "ai_voice"], "needle": ["tz"], "p_lawful": 0.48076745801046467}
+{"probe": "compositional", "id": "compositional-0103", "k": 4, "lawful": false, "considerations": ["tz", "ai_voice", "inconvenient", "attorney"], "needle": ["tz"], "p_lawful": 0.37072713555662035}
+{"probe": "compositional", "id": "compositional-0104", "k": 4, "lawful": false, "considerations": ["frequency", "ambiguous", "ai_voice", "inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.37920313215631973}
+{"probe": "compositional", "id": "compositional-0106", "k": 4, "lawful": false, "considerations": ["ambiguous", "ai_voice", "frequency", "inconvenient"], "needle": ["ai_voice"], "p_lawful": 0.2600798057239285}
+{"probe": "compositional", "id": "compositional-0107", "k": 4, "lawful": false, "considerations": ["ambiguous", "inconvenient", "attorney", "ai_voice"], "needle": ["ambiguous"], "p_lawful": 0.3619466477888654}
+{"probe": "compositional", "id": "compositional-0108", "k": 4, "lawful": false, "considerations": ["attorney", "inconvenient", "tz", "ambiguous"], "needle": ["attorney"], "p_lawful": 0.38303984976381134}
+{"probe": "compositional", "id": "compositional-0109", "k": 4, "lawful": false, "considerations": ["frequency", "attorney", "inconvenient", "ambiguous"], "needle": ["attorney"], "p_lawful": 0.4231372139090377}
+{"probe": "compositional", "id": "compositional-0110", "k": 5, "lawful": true, "considerations": ["tz", "frequency", "inconvenient", "attorney", "ai_voice"], "needle": [], "p_lawful": 0.3607215141722308}
+{"probe": "compositional", "id": "compositional-0111", "k": 5, "lawful": true, "considerations": ["inconvenient", "ai_voice", "attorney", "ambiguous", "tz"], "needle": [], "p_lawful": 0.3846962155743118}
+{"probe": "compositional", "id": "compositional-0112", "k": 5, "lawful": true, "considerations": ["tz", "ai_voice", "ambiguous", "inconvenient", "frequency"], "needle": [], "p_lawful": 0.332072856130813}
+{"probe": "compositional", "id": "compositional-0114", "k": 5, "lawful": true, "considerations": ["ambiguous", "frequency", "tz", "attorney", "inconvenient"], "needle": [], "p_lawful": 0.3376641071977134}
+{"probe": "compositional", "id": "compositional-0115", "k": 5, "lawful": true, "considerations": ["attorney", "frequency", "ambiguous", "ai_voice", "inconvenient"], "needle": [], "p_lawful": 0.3035000432256693}
+{"probe": "compositional", "id": "compositional-0116", "k": 5, "lawful": true, "considerations": ["frequency", "ambiguous", "tz", "inconvenient", "ai_voice"], "needle": [], "p_lawful": 0.3843044239209019}
+{"probe": "compositional", "id": "compositional-0117", "k": 5, "lawful": true, "considerations": ["ambiguous", "tz", "ai_voice", "attorney", "frequency"], "needle": [], "p_lawful": 0.4484190356459985}
+{"probe": "compositional", "id": "compositional-0118", "k": 5, "lawful": true, "considerations": ["ambiguous", "ai_voice", "inconvenient", "frequency", "tz"], "needle": [], "p_lawful": 0.45609064450167247}
+{"probe": "compositional", "id": "compositional-0120", "k": 5, "lawful": true, "considerations": ["tz", "attorney", "ambiguous", "inconvenient", "frequency"], "needle": [], "p_lawful": 0.36390895275061014}
+{"probe": "compositional", "id": "compositional-0121", "k": 5, "lawful": true, "considerations": ["inconvenient", "attorney", "ai_voice", "tz", "ambiguous"], "needle": [], "p_lawful": 0.3562115587959019}
+{"probe": "compositional", "id": "compositional-0122", "k": 5, "lawful": true, "considerations": ["attorney", "inconvenient", "ambiguous", "ai_voice", "frequency"], "needle": [], "p_lawful": 0.4617247968877539}
+{"probe": "compositional", "id": "compositional-0123", "k": 5, "lawful": true, "considerations": ["attorney", "tz", "ai_voice", "frequency", "inconvenient"], "needle": [], "p_lawful": 0.3820346445543957}
+{"probe": "compositional", "id": "compositional-0124", "k": 5, "lawful": false, "considerations": ["tz", "attorney", "inconvenient", "ai_voice", "frequency"], "needle": ["tz"], "p_lawful": 0.4627027329352669}
+{"probe": "compositional", "id": "compositional-0125", "k": 5, "lawful": false, "considerations": ["inconvenient", "ambiguous", "tz", "attorney", "ai_voice"], "needle": ["ai_voice"], "p_lawful": 0.26341117126502156}
+{"probe": "compositional", "id": "compositional-0127", "k": 5, "lawful": false, "considerations": ["tz", "frequency", "inconvenient", "ambiguous", "attorney"], "needle": ["tz"], "p_lawful": 0.3602184012111124}
+{"probe": "compositional", "id": "compositional-0128", "k": 5, "lawful": false, "considerations": ["frequency", "ai_voice", "attorney", "ambiguous", "inconvenient"], "needle": ["attorney"], "p_lawful": 0.45998789212926494}
+{"probe": "compositional", "id": "compositional-0129", "k": 5, "lawful": false, "considerations": ["ai_voice", "frequency", "attorney", "ambiguous", "tz"], "needle": ["ambiguous"], "p_lawful": 0.3774867197526232}
+{"probe": "compositional", "id": "compositional-0130", "k": 5, "lawful": false, "considerations": ["attorney", "ai_voice", "frequency", "tz", "inconvenient"], "needle": ["inconvenient"], "p_lawful": 0.47022270463017557}
+{"probe": "compositional", "id": "compositional-0131", "k": 5, "lawful": false, "considerations": ["attorney", "ambiguous", "ai_voice", "tz", "frequency"], "needle": ["frequency"], "p_lawful": 0.5099263701261939}
+{"probe": "compositional", "id": "compositional-0132", "k": 5, "lawful": false, "considerations": ["attorney", "tz", "ambiguous", "inconvenient", "frequency"], "needle": ["ambiguous"], "p_lawful": 0.37594759134980865}
+{"probe": "compositional", "id": "compositional-0133", "k": 5, "lawful": false, "considerations": ["tz", "inconvenient", "attorney", "ai_voice", "frequency"], "needle": ["frequency"], "p_lawful": 0.3905524728000996}
+{"probe": "compositional", "id": "compositional-0134", "k": 5, "lawful": false, "considerations": ["inconvenient", "ambiguous", "attorney", "ai_voice", "frequency"], "needle": ["frequency"], "p_lawful": 0.3306145000475816}
+{"probe": "compositional", "id": "compositional-0135", "k": 5, "lawful": false, "considerations": ["ambiguous", "tz", "attorney", "ai_voice", "inconvenient"], "needle": ["ai_voice"], "p_lawful": 0.20299426357045844}
+{"probe": "compositional", "id": "compositional-0136", "k": 5, "lawful": false, "considerations": ["ai_voice", "ambiguous", "tz", "inconvenient", "attorney"], "needle": ["inconvenient"], "p_lawful": 0.32541266865198387}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 0, "label": "yes", "p_lawful": 0.3863937717868033}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 1, "label": "yes", "p_lawful": 0.3514843310820287}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 2, "label": "yes", "p_lawful": 0.3223115317707389}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 3, "label": "yes", "p_lawful": 0.3558550106561296}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 4, "label": "yes", "p_lawful": 0.3760075031899944}
+{"probe": "ladder", "ladder": "workplace", "rung": 0, "context": 5, "label": "yes", "p_lawful": 0.33097601058272796}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 0, "label": "yes", "p_lawful": 0.3685117639992511}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 1, "label": "yes", "p_lawful": 0.3091384404592873}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 2, "label": "yes", "p_lawful": 0.3810818321351659}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 3, "label": "yes", "p_lawful": 0.4610209065369265}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 4, "label": "yes", "p_lawful": 0.37150431152041163}
+{"probe": "ladder", "ladder": "workplace", "rung": 1, "context": 5, "label": "yes", "p_lawful": 0.3415301742671759}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 0, "label": "yes", "p_lawful": 0.42186911278644257}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 1, "label": "yes", "p_lawful": 0.3144122408367992}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 2, "label": "yes", "p_lawful": 0.4281392385262059}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 3, "label": "yes", "p_lawful": 0.506530249238955}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 4, "label": "yes", "p_lawful": 0.3918105698512774}
+{"probe": "ladder", "ladder": "workplace", "rung": 2, "context": 5, "label": "yes", "p_lawful": 0.4464825051458976}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 0, "label": "contested", "p_lawful": 0.43163416024590046}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 1, "label": "contested", "p_lawful": 0.34613302985552297}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 2, "label": "contested", "p_lawful": 0.42834793527318976}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 3, "label": "contested", "p_lawful": 0.43159648811640694}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 4, "label": "contested", "p_lawful": 0.3506579196258661}
+{"probe": "ladder", "ladder": "workplace", "rung": 3, "context": 5, "label": "contested", "p_lawful": 0.40200132519231263}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 0, "label": "no", "p_lawful": 0.5398381340264349}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 1, "label": "no", "p_lawful": 0.47152971930982}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 2, "label": "no", "p_lawful": 0.5521551439032513}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 3, "label": "no", "p_lawful": 0.5598823121740617}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 4, "label": "no", "p_lawful": 0.507762289231726}
+{"probe": "ladder", "ladder": "workplace", "rung": 4, "context": 5, "label": "no", "p_lawful": 0.4504152853841292}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 0, "label": "clear", "p_lawful": 0.4180671251049577}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 1, "label": "clear", "p_lawful": 0.4045179006980304}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 2, "label": "clear", "p_lawful": 0.5018492241510291}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 3, "label": "clear", "p_lawful": 0.44694704679303165}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 4, "label": "clear", "p_lawful": 0.4656897891047466}
+{"probe": "ladder", "ladder": "attorney", "rung": 0, "context": 5, "label": "clear", "p_lawful": 0.506430655731574}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 0, "label": "clear", "p_lawful": 0.42144250797012484}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 1, "label": "clear", "p_lawful": 0.36401474628527947}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 2, "label": "clear", "p_lawful": 0.3749564992282249}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 3, "label": "clear", "p_lawful": 0.4084164527114996}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 4, "label": "clear", "p_lawful": 0.4256952296093906}
+{"probe": "ladder", "ladder": "attorney", "rung": 1, "context": 5, "label": "clear", "p_lawful": 0.45252759788276126}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 0, "label": "clear", "p_lawful": 0.45173598114107916}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 1, "label": "clear", "p_lawful": 0.3353843778966319}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 2, "label": "clear", "p_lawful": 0.4019906010632502}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 3, "label": "clear", "p_lawful": 0.38160236045381174}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 4, "label": "clear", "p_lawful": 0.4187600895192085}
+{"probe": "ladder", "ladder": "attorney", "rung": 2, "context": 5, "label": "clear", "p_lawful": 0.32799279167333706}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 0, "label": "contested", "p_lawful": 0.3898281990385874}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 1, "label": "contested", "p_lawful": 0.4142825608240613}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 2, "label": "contested", "p_lawful": 0.3144840121103954}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 3, "label": "contested", "p_lawful": 0.47123588027212443}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 4, "label": "contested", "p_lawful": 0.36812151644964836}
+{"probe": "ladder", "ladder": "attorney", "rung": 3, "context": 5, "label": "contested", "p_lawful": 0.4279957123760827}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 0, "label": "contested", "p_lawful": 0.2893474268748324}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 1, "label": "contested", "p_lawful": 0.36295723205106334}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 2, "label": "contested", "p_lawful": 0.36190359939187394}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 3, "label": "contested", "p_lawful": 0.40983851321338516}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 4, "label": "contested", "p_lawful": 0.371592578746619}
+{"probe": "ladder", "ladder": "attorney", "rung": 4, "context": 5, "label": "contested", "p_lawful": 0.35153091159126176}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 0, "label": "contested", "p_lawful": 0.36891312349002225}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 1, "label": "contested", "p_lawful": 0.40278694436597706}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 2, "label": "contested", "p_lawful": 0.3357173627780909}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 3, "label": "contested", "p_lawful": 0.3620982985598748}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 4, "label": "contested", "p_lawful": 0.3141637358854155}
+{"probe": "ladder", "ladder": "attorney", "rung": 5, "context": 5, "label": "contested", "p_lawful": 0.40741131105851786}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 0, "label": "contested", "p_lawful": 0.38114088911940314}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 1, "label": "contested", "p_lawful": 0.38146706254776624}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 2, "label": "contested", "p_lawful": 0.440058947128957}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 3, "label": "contested", "p_lawful": 0.41467506478628297}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 4, "label": "contested", "p_lawful": 0.32172089127166614}
+{"probe": "ladder", "ladder": "attorney", "rung": 6, "context": 5, "label": "contested", "p_lawful": 0.3714194652222772}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 0, "label": "clear", "p_lawful": 0.437362429093493}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 1, "label": "clear", "p_lawful": 0.3763333890836661}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 2, "label": "clear", "p_lawful": 0.2693330743704033}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 3, "label": "clear", "p_lawful": 0.37612718417153224}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 4, "label": "clear", "p_lawful": 0.3561522942522335}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 0, "context": 5, "label": "clear", "p_lawful": 0.32331778917969567}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 0, "label": "clear", "p_lawful": 0.4284607543950206}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 1, "label": "clear", "p_lawful": 0.3775883193281058}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 2, "label": "clear", "p_lawful": 0.3774884575331424}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 3, "label": "clear", "p_lawful": 0.422450404528032}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 4, "label": "clear", "p_lawful": 0.3884153727953248}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 1, "context": 5, "label": "clear", "p_lawful": 0.4193847926546316}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 0, "label": "contested", "p_lawful": 0.3625165665262443}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 1, "label": "contested", "p_lawful": 0.30574132805204124}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 2, "label": "contested", "p_lawful": 0.3218359655105856}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 3, "label": "contested", "p_lawful": 0.4148166765793099}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 4, "label": "contested", "p_lawful": 0.3600563703600541}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 2, "context": 5, "label": "contested", "p_lawful": 0.36245144407950325}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 0, "label": "contested", "p_lawful": 0.41858354524323244}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 1, "label": "contested", "p_lawful": 0.4084533976955927}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 2, "label": "contested", "p_lawful": 0.3247339887928665}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 3, "label": "contested", "p_lawful": 0.4035824893698774}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 4, "label": "contested", "p_lawful": 0.3049284422707797}
+{"probe": "ladder", "ladder": "attorney_fl", "rung": 3, "context": 5, "label": "contested", "p_lawful": 0.34995269365023507}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 0, "label": "clear", "p_lawful": 0.03954270098931604}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 1, "label": "clear", "p_lawful": 0.04425656615188281}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 2, "label": "clear", "p_lawful": 0.05216814490199302}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 3, "label": "clear", "p_lawful": 0.03466945249023155}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 4, "label": "clear", "p_lawful": 0.05355966025622058}
+{"probe": "ladder", "ladder": "threat", "rung": 0, "context": 5, "label": "clear", "p_lawful": 0.03171684385423616}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 0, "label": "clear", "p_lawful": 0.26354348500910985}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 1, "label": "clear", "p_lawful": 0.2581894683533097}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 2, "label": "clear", "p_lawful": 0.2666616686952991}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 3, "label": "clear", "p_lawful": 0.2424518622887512}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 4, "label": "clear", "p_lawful": 0.25245034229698704}
+{"probe": "ladder", "ladder": "threat", "rung": 1, "context": 5, "label": "clear", "p_lawful": 0.21719290946235015}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 0, "label": "contested", "p_lawful": 0.2884980068291133}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 1, "label": "contested", "p_lawful": 0.22388572829122902}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 2, "label": "contested", "p_lawful": 0.19869553359383402}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 3, "label": "contested", "p_lawful": 0.1833503434331286}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 4, "label": "contested", "p_lawful": 0.2913953574892122}
+{"probe": "ladder", "ladder": "threat", "rung": 2, "context": 5, "label": "contested", "p_lawful": 0.28326119363174057}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 0, "label": "contested", "p_lawful": 0.38660918812797934}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 1, "label": "contested", "p_lawful": 0.36157620396833456}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 2, "label": "contested", "p_lawful": 0.34785415176507145}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 3, "label": "contested", "p_lawful": 0.2437016050574141}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 4, "label": "contested", "p_lawful": 0.3110014358982647}
+{"probe": "ladder", "ladder": "threat", "rung": 3, "context": 5, "label": "contested", "p_lawful": 0.3770326827448642}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 0, "label": "none", "p_lawful": 0.41773681274854096}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 1, "label": "none", "p_lawful": 0.4454449580701591}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 2, "label": "none", "p_lawful": 0.3831331960798859}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 3, "label": "none", "p_lawful": 0.3606420646733381}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 4, "label": "none", "p_lawful": 0.3441893694894893}
+{"probe": "ladder", "ladder": "threat", "rung": 4, "context": 5, "label": "none", "p_lawful": 0.45665381891990764}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 0, "label": "none", "p_lawful": 0.5285027724220394}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 1, "label": "none", "p_lawful": 0.3736360835657192}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 2, "label": "none", "p_lawful": 0.5130416007031664}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 3, "label": "none", "p_lawful": 0.3852141477429993}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 4, "label": "none", "p_lawful": 0.5029912653008732}
+{"probe": "ladder", "ladder": "threat", "rung": 5, "context": 5, "label": "none", "p_lawful": 0.5027786309534836}

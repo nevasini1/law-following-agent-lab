@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lawful"
+version = "0.1.0"
+description = "Test, train and control law-following agents with open-weight models on a CPU"
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy", "pandas", "requests", "tqdm", "rank_bm25", "sentence-transformers",
+                "scikit-learn", "matplotlib", "pypdf", "torch", "transformers", "peft", "datasets", "pyarrow"]
+
+[tool.setuptools.packages.find]
+include = ["lawful*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

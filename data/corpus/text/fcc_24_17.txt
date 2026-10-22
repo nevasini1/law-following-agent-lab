@@ -1,0 +1,289 @@
+Federal Communications Commission FCC 24-17
+Before the
+Federal Communications Commission
+Washington, D.C. 20554
+In the Matter of
+Implications of Artificial Intelligence Technologies
+on Protecting Consumers from Unwanted 
+Robocalls and Robotexts
+)
+)
+)
+)
+)
+CG Docket No. 23-362
+DECLARATORY RULING
+Adopted:  February 2, 2024 Released:  February 8, 2024
+By the Commission:  Chairwoman Rosenworcel and Commissioners Starks and Gomez issuing separate 
+statements.
+I. INTRODUCTION
+1. As artificial intelligence (AI) technologies emerge that affect the existing regulatory 
+landscape that protects consumers from unwanted and illegal robocalls, we take action today to ensure 
+that consumers continue to receive the protections afforded under the Telephone Consumer Protection 
+Act (TCPA).1  AI technologies that can generate content such as artificial voice communications can be 
+beneficial, but also pose new challenges to consumers.2  We take this opportunity to clarify the 
+application of the TCPA to these technologies.
+2. In this Declaratory Ruling, we confirm that the TCPA’s restrictions on the use of 
+“artificial or prerecorded voice” encompass current AI technologies that generate human voices.3  As a 
+result, calls that use such technologies fall under the TCPA and the Commission’s implementing rules, 
+and therefore require the prior express consent of the called party to initiate such calls absent an 
+emergency purpose or exemption.4
+II. BACKGROUND
+3. The TCPA protects consumers from unwanted calls made using an artificial or 
+prerecorded voice.5  In relevant part, the TCPA prohibits initiating “any telephone call to any residential 
+telephone line using an artificial or prerecorded voice to deliver a message without the prior express 
+consent of the called party” unless a statutory exception applies or the call is “exempted by rule or order 
+by the Commission under [section 227(b)(2)(B)].”6  The TCPA also prohibits, without the prior express 
+consent of the called party, any non-emergency call made using an automatic telephone dialing system or 
+1 See Telephone Consumer Protection Act of 1991, Pub. L. No. 102-243, 105 Stat. 2394 (1991), codified at 47 
+U.S.C. § 227.  As discussed in more detail below, the TCPA regulates any call made using an “automatic telephone 
+dialing system” or an artificial or prerecorded voice.  Any such call is considered a “robocall” for purposes of this 
+proceeding.  See 47 U.S.C. § 227(b)(1).  
+2 See, e.g., Executive Order No. 14110, Safe, Secure, and Trustworthy Development and Use of Artificial 
+Intelligence, 88 Fed. Reg. 75191 (Oct. 30, 2023).
+3 See 47 U.S.C. § 227(b); 47 CFR § 64.1200(a)(1), (3).
+4 The Commission has exercised its statutory authority to adopt certain exemptions from this prohibition.  See 47 
+CFR § 64.1200(a)(3), (9). 
+5 See 47 U.S.C. § 227(b)(1).
+6 47 U.S.C. § 227(b)(1)(B).  The TCPA does not define the terms “artificial” or “prerecorded voice.” 
+Federal Communications Commission FCC 24-17
+2
+an artificial or prerecorded voice to certain specified categories of telephone numbers including 
+emergency lines and wireless numbers.7  
+4. On November 16, 2023, the Commission released a Notice of Inquiry seeking to better 
+understand the implications of emerging AI technologies as part of our ongoing efforts to protect 
+consumers from unwanted and illegal telephone calls and text messages under the TCPA.8  As part of that 
+inquiry, the Commission indicated that “the Commission’s authority under the TCPA encompasses 
+current uses of AI in robocalling and robotexting as we understand them, e.g., emulating human speech 
+and interacting with consumers as though they were live human callers when generating voice and text 
+messages.”9  In addition, the Commission stated “that certain AI technologies such as ‘voice cloning’ 
+appear to fall within the TCPA’s existing prohibition on artificial or prerecorded voice messages because 
+this technology artificially simulates a human voice” and sought comment on these issues.10  In response, 
+several commenters ask the Commission to confirm that AI technologies that simulate a human voice 
+and/or generate call content using a prerecorded voice should be considered an “artificial or prerecorded 
+voice” for purposes of the TCPA.11 
+III. DISCUSSION
+5. Consistent with our statements in the AI NOI, we confirm that the TCPA’s restrictions on 
+the use of “artificial or prerecorded voice” encompass current AI technologies that resemble human 
+voices and/or generate call content using a prerecorded voice.12  Therefore, callers must obtain prior 
+express consent from the called party before making a call that utilizes artificial or prerecorded voice 
+simulated or generated through AI technology.13  AI technologies such as “voice cloning” fall within the 
+TCPA’s existing prohibition on artificial or prerecorded voice messages because this technology 
+artificially simulates a human voice.14  Voice cloning and other similar technologies emulate real or 
+artificially created human voices for telephone calls to consumers.15  They are “artificial” voice messages 
+because a person is not speaking them,16 and, as a result, when used they represent the types of calls the 
+TCPA seeks to protect consumers from.17  The Commission also recognized in the AI NOI the potential 
+7 See 47 U.S.C. § 227(b)(1)(A).  
+8 See Implications of Artificial Intelligence Technologies on Protecting Consumers from Unwanted Robocalls and 
+Robotexts, CG Docket No. 23-362, Notice of Inquiry, FCC 23-101 (rel. Nov. 16, 2023) (AI NOI).
+9 Id. at para. 9.  
+10 Id. at para. 25.
+11 See, e.g., State AG Reply Comments at 2-3 (“any type of AI technology that generates a human voice should be 
+considered an ‘artificial voice’ for purposes of the TCPA”); Transaction Network Services Comments at 4 (“The 
+Commission should also take this opportunity to issue clear and explicit guidance to the industry explaining that the 
+plain language of the TCPA applies to any AI-generated voice call”); USTelecom Comments at 3-4 (“The 
+Commission, however, should take this opportunity to issue clear and explicit guidance to the industry confirming 
+that the plain language of the [TCPA] applies to any AI-generated voice call”). 
+12 See AI NOI at paras. 9, 12, 25.
+13 If these robocalls introduce an advertisement or contain telemarketing, the Commission’s rules require that the 
+caller obtain the prior express written consent of the called party.  See 47 CFR § 64.1200(a)(2), (3).
+14 See Anisha Kohli, From Scams to Music, AI Voice Cloning is on the Rise (Apr. 29, 2023) 
+https://time.com/6275794/ai-voice-cloning-scams-music.
+15 AI NOI at para. 25.
+16 This accords with court decisions that have described an “artificial voice” under the TCPA as including “a sound 
+resembling a human voice that is originated by artificial intelligence.”  Trim v. Reward Zone USA, 76 F.4th 1157, 
+1163 (9th Cir. 2023).
+17 47 U.S.C. § 227(b)(1)(A), (b)(1)(B) (imposing restrictions on calls “using . . . an artificial . . . voice”).
+Federal Communications Commission FCC 24-17
+3
+for AI technologies to communicate with consumers using prerecorded voice messages.18  Where this 
+occurs, we conclude that the call is “using” a “prerecorded voice” within the meaning of the TCPA.19  In 
+reaching these conclusions, we agree with several commenters that the existing consumer protections 
+under the TCPA apply to these calls.20  No commenter opposes these conclusions.
+6. Our finding will deter negative uses of AI and ensure that consumers are fully protected 
+by the TCPA when they receive such calls.  And it also makes clear that the TCPA does not allow for any 
+carve out of technologies that purport to provide the equivalent of a live agent, thus preventing 
+unscrupulous businesses from attempting to exploit any perceived ambiguity in our TCPA rules.21  
+Although voice cloning and other uses of AI on calls are still evolving, we have already seen their use in 
+ways that can uniquely harm consumers and those whose voice is cloned.22  Voice cloning can convince a 
+called party that a trusted person, or someone they care about such as a family member, wants or needs 
+them to take some action that they would not otherwise take.  Requiring consent for such calls arms 
+consumers with the right not to receive such calls or, if they do, the knowledge that they should be 
+cautious about them.23  
+7. To be clear, we understand that not all AI-generated calls may be deceptive or annoy all 
+consumers.  But the TCPA’s demands fully apply to those calls and, thus, consumers can themselves 
+choose whether to receive them.  Indeed, as Congress observed in adopting the TCPA, “residential 
+telephone subscribers consider automated or prerecorded telephone calls, regardless of the content or the 
+initiator of the message, to be a nuisance and an invasion of privacy.”24  Our ruling today thus comports 
+with both the statutory text and the legislative intent of the TCPA and protects consumers from unwanted 
+and illegal prerecorded or artificial voice calls.
+8. Our conclusion is also consistent with the Commission’s Soundboard Ruling, which 
+confirmed that the TCPA applies to any telephone call that is initiated using an artificial or prerecorded 
+voice message.25  There the Commission confirmed that the presence of a live agent on a call selecting the 
+18 AI NOI at para. 13.
+19 47 U.S.C. § 227(b)(1)(A), (b)(1)(B) (imposing restrictions on calls “using” a “prerecorded voice”).
+20 See, e.g., INCOMPAS Reply Comments at 4; State AG Reply Comments at 2-3; Transaction Network Services 
+Comments at 4; USTelecom Comments at 3-4.
+21 See State AG Reply Comments at 2.
+22 See, e.g., Ali Swenson and Will Weissert, New Hampshire investigating fake Biden robocall meant to discourage 
+voters ahead of primary (Jan. 24, 2024) https://apnews.com/article/new-hampshire-primary-biden-ai-deepfake-
+robocall-f3469ceb6dd613079092287994663db5; Justin Green and Allie Weintraub, Experts warn of rise in 
+scammers using AI to mimic voices of loved ones in distress (July 7, 2023). 
+https://abcnews.go.com/Technology/experts-warn-rise-scammers-ai-mimic-voices-loved/story?id=100769857.
+23 As discussed below, section 64.1200(b)(1) of the Commission’s rules provides: “All artificial or prerecorded 
+voice telephone messages shall: (1) At the beginning of the message, state clearly the identity of the business, 
+individual, or other entity that is responsible for initiating the call. . . .”
+24 Telephone Consumer Protection Act of 1991, Public Law 102-243, 102d Congress, § 2(10) (1991).
+25 See Rules and Regulations Implementing the Telephone Protection Act of 1991, NorthStar Alarm Services LLC’s 
+Petition for Expedited Declaratory Ruling, Yodel Technologies Petition for Expedited Declaratory Ruling or in the 
+Alternative Retroactive Waiver, CG Docket No. 02-278, Declaratory Ruling and Order, 35 FCC Rcd 14640 at 
+14643, para. 11 (2020) (Soundboard Ruling).  Although certain provisions of the TCPA use the term “make” rather 
+than “initiate” a call, see, e.g., 47 U.S.C. § 227(b)(1)(A), “[t]he Commission uses the words ‘make’ and ‘initiate’ 
+interchangeably in its rules arising under § 227(b)(1)(A) without drawing any distinction.”  Dialing Services, LLC, 
+Notice of Apparently Liability for Forfeiture, 29 FCC Rcd 5537, 5542, para 14, n.30 (2014); see also Rules and 
+Regulations Implementing the Telephone Consumer Protection Act of 1991, et al., Declaratory Ruling and Order, 30 
+FCC Rcd 7961, 7979, para. 27 n.95 (2015) ( “the Commission has recently stated that the same logic that applies to 
+the ‘initiation’ of calls under section 227(b)(1)(b) applies to the ‘making’ of calls under section 227(b)(1)(A)”).
+Federal Communications Commission FCC 24-17
+4
+prerecorded messages to be played “does not negate the clear statutory prohibition against initiating a call 
+using a prerecorded or artificial voice.”26  We find that this rationale applies to AI technologies, including 
+those that either wholly simulate an artificial voice or resemble the voice of a real person taken from an 
+audio clip to make it appear as though that person is speaking on the call to interact with consumers.  In 
+both cases, the call is initiated using an artificial or prerecorded voice under the TCPA.
+9. As a result, callers that use such technologies must obtain the prior express consent of the 
+called party to initiate such calls absent an emergency purpose or exemption.27  In addition, our rules 
+require that all artificial or prerecorded voice messages must provide certain identification and disclosure 
+information for the entity responsible for initiating the call.28  In every case where the artificial or 
+prerecorded voice message includes or introduces an advertisement or constitutes telemarketing, it must 
+also offer specified opt-out methods for the called party to make a request to stop calling that telephone 
+number.29  These requirements are applicable to any AI technology that initiates any outbound telephone 
+call using an artificial or prerecorded voice to consumers.
+IV. ORDERING CLAUSE
+10. Accordingly, IT IS ORDERED, pursuant to Sections 1-4, and 227 of the 
+Communications Act of 1934, as amended, 47 U.S.C. §§ 151-154, 227, sections 1.2 and 64.1200 of the 
+Commission’s rules, 47 CFR §§ 1.2 and 64.1200, that this Declaratory Ruling IS ADOPTED.
+11.IT IS FURTHER ORDERED that this Declaratory Ruling shall be effective upon 
+release.
+FEDERAL COMMUNICATIONS COMMISSION
+Marlene H. Dortch
+Secretary
+26 Soundboard Ruling at 14644, para. 12.
+27 See 47 CFR § 64.1200(a)(1), (3).  
+28 See 47 CFR § 64.1200(b)(1), (2).
+29 See 47 CFR § 64.1200(b)(3).
+Federal Communications Commission FCC 24-17
+STATEMENT OF
+CHAIRWOMAN JESSICA ROSENWORCEL
+Re:Implications of Artificial Intelligence Technologies on Protecting Consumers from Unwanted 
+Robocalls and Robotexts, CG Docket No. 23-362, Declaratory Ruling (February 2, 2024)
+It seems like something from the far-off future, but it is already here.  
+Artificial Intelligence-generated voice cloning and image creating tools are now more accessible 
+and more likely to be used for fraud.  This technology can confuse us when we listen, view, and click, 
+because it can trick us into thinking all kinds of fake stuff is legitimate.  Already we see this happening 
+with Tom Hanks hawking dental plans online, a vile video featuring Taylor Swift, and calls from 
+candidates for political office that are designed to confuse us about where and when to vote.  We also 
+have stories of grandparents who are led to believe that it is really their grandchild on the phone begging 
+for funds, only to learn later it was a bad actor preying on their willingness to forward money to family.
+No matter what celebrity or politician you favor, or what your relationship is with your kin when 
+they call for help, it is possible we could all be on the receiving end of these faked calls.  That is why at 
+the Federal Communications Commission, we are taking action to stop the bad actors responsible for this 
+junk.  In November we launched a Notice of Inquiry to build a record to help combat illegal robocalls 
+where AI might be involved.  We asked questions about how AI might be used for scams that arise out of 
+robocalls, by mimicking the voices of those we know.  But just as important, we asked about how AI can 
+help us with pattern recognition so that we turn this technology into a force for good that can recognize 
+illegal robocalls before they ever even reach us on the phone.
+Today we go a step further.  We issue a Declaratory Ruling to make clear that under the 
+Telephone Consumer Protection Act, restrictions on the use of an “artificial or prerecorded voice” apply 
+to the AI technologies that are already being used to generate unwanted and unlawful robocalls.
+What does that mean?  The Telephone Consumer Protection Act is the primary law we have to 
+help limit unwanted robocalls.  It means that AI technologies like voice cloning fall within this law’s 
+existing prohibitions and that calls that use this technology to simulate a human voice are illegal, unless 
+callers have obtained prior express consent.  It also means that when these calls happen, State Attorneys 
+General across the country can go after the bad actors behind these robocalls and seek damages under the 
+law.  In fact, 26 State Attorneys General—from all across the country—wrote to us supporting this 
+approach.  Even better, at the Commission we now have a Memorandum of Understanding with 48 State 
+Attorneys General who have agreed to work with us to combat robocalls.  Now, with this Declaratory 
+Ruling, we will have another tool to go after voice cloning scams and get this junk off the line.
+Federal Communications Commission FCC 24-17
+STATEMENT OF 
+COMMISSIONER GEOFFREY STARKS 
+Re:Implications of Artificial Intelligence Technologies on Protecting Consumers from Unwanted 
+Robocalls and Robotexts, CG Docket No. 23-362, Declaratory Ruling (February 2, 2024)
+We all know unwanted robocalls are a scourge on our society.  But I am particularly troubled by 
+recent harmful and deceptive uses of voice cloning in robocalls.  Real world examples here are no longer 
+theoretical.  Bad actors are using voice cloning – a generative AI technology that uses a recording of a 
+human voice to generate speech sounding like that voice – to threaten election integrity, harm public 
+safety, and prey on the most vulnerable members of our society.  
+In January, potential primary voters in New Hampshire received a call, purportedly from 
+President Biden, telling them to stay home and “save your vote” by skipping the state’s primary.1  The 
+voice on the call sounded like the President’s, but of course it wasn’t.  Those were voice cloning calls.  
+The use of generative AI has brought a fresh threat to voter suppression schemes and the campaign season 
+with the heightened believability of fake robocalls.2  Another example: parents have been scared half to 
+death hearing their child’s voice on the other end of the line, saying they’ve been kidnapped, or need 
+money to get out of trouble.3  In actuality, their children are safe and unaware of the chaos.  Finally, 
+fraudsters continue to target the elderly through “grandparent” scams, but voice cloning adds a 
+frightening new dimension to these attacks on those who may be least able to detect them.4  These are real 
+attacks causing harm and confusion, and given their effectiveness, we can assuredly expect more to come.  
+The whole of government is rightly focused on whether and how to regulate AI.  President Biden 
+issued a landmark executive order aimed at seizing the promise and managing the risks of AI.  Senator 
+Schumer has convened nine bipartisan AI insight forums, bringing together leading minds to advise 
+Congress broadly on AI’s impact from the workforce to national security.  Legislators have introduced 
+bills addressing the use of AI in dozens of contexts, including election integrity: in fact, a bipartisan group 
+of senators have introduced legislation that would ban the use of AI to generate content falsely depicting 
+federal candidates to influence an election, and comprehensive robocall legislation announced just days 
+ago would double the statutory penalty for calls using AI to impersonate an individual or entity with the 
+intent to defraud.   
+This work is critical.  In the interim, agencies that have existing authority to regulate AI should 
+work hard to address harmful uses of the technology.  And they are.  The Federal Trade Commission just 
+finished accepting submissions for its Voice Cloning Challenge – an effort to encourage products, 
+policies, and procedures aimed at protecting consumers from AI-enabled voice cloning harms.  The 
+Federal Election Commission has sought comment on prohibiting the deceptive use of AI in campaign 
+1 Steve Holland, “Fake ‘Biden’ robocall tells New Hampshire Democrats to stay home,” Reuters (Jan. 22, 2024), 
+https://www.reuters.com/world/us/fake-biden-robo-call-tells-new-hampshire-voters-stay-home-2024-01-22/. 
+2 Christine Chung, “The Used Robocalls to Suppress Black Votes.  Now They Have to Register Voters.” The New 
+York Times (Dec. 1, 2022), https://www.nytimes.com/2022/12/01/us/politics/wohl-burkman-voter-suppression-
+ohio.html; In the Matter of John M. Burkman, Jacob Alexander Wohl, J.M. Burman & Associates, Forfeiture Order, 
+File No. EB-TCD-21-00032652 et al. (2023) (FCC’s assessment of $5,134,000 forfeiture against the perpetrators of 
+2020 robocall voter suppression scheme for violations of the TCPA). 
+3 Faith Karimi, “‘Mom, these bad men have me’: She believes scammers cloned her daughter’s voice in a fake 
+kidnapping,” CNN (Apr. 29, 2023), https://www.cnn.com/2023/04/29/us/ai-scam-calls-kidnapping-cec/index.html; 
+Pranshu Verma, “They thought loved ones were calling for help.  It was an AI scam.” The Washington Post (Mar. 5, 
+2023), https://www.washingtonpost.com/technology/2023/03/05/ai-voice-scam/. 
+4 Federal Communications Commission (Feb. 1, 2024), ‘Grandparent’ Scams Get More Sophisticated, 
+https://www.fcc.gov/grandparent-scams-get-more-sophisticated. 
+Federal Communications Commission FCC 24-17
+7
+advertisements.
+I am proud that the FCC is also stepping in to play its own unique role.  We said it in our 
+November Notice of Inquiry, and today’s Declaratory Ruling makes it clear: the use of voice cloning in 
+telephone calls and texts falls within the FCC’s statutory authority under the TCPA.  The Act prohibits 
+calls using “artificial or prerecorded voice[s]” without consent.  What is voice cloning, if not the use of an 
+artificial voice?  By issuing this item, we’re responding to 26 bipartisan state attorneys general, who last 
+month emphasized to the FCC that “any type of AI technology that generates a human voice should be 
+considered an ‘artificial voice’ for purposes of the TCPA.”5  
+The FCC’s collaborative work with state and local law enforcement is key to investigating and 
+stopping robocall scams.  We must do all we can to aid these partners, so where we can give state attorney 
+general partners the certainty of authority to go after these threats, we absolutely should.  I know we will 
+work hand in glove to enforce the law against bad actors using voice cloning calls to cause harm – and as 
+we’ve seen, the harm can range from financial fraud to threats on the sanctity of our democratic process.  
+Too much is at stake to stand still.
+I want to thank the Chairwoman for her leadership in our robocall efforts and her prompt action 
+on today’s Declaratory Ruling.  My thanks also to the Commission staff who worked on this item.  It has 
+my full support.   
+5 Reply Comments of 26 State Attorneys General, CG Docket No. 23-362 at 1 (Jan. 16, 2024).
+Federal Communications Commission FCC 24-17
+STATEMENT OF
+COMMISSIONER ANNA M. GOMEZ
+Re:Implications of Artificial Intelligence Technologies on Protecting Consumers from Unwanted 
+Robocalls and Robotexts, CG Docket No. 23-362, Declaratory Ruling (February 2, 2024)
+Artificial Intelligence (AI) technologies can bring both new challenges to the security of our 
+communications and opportunities to combat robocalls and robotexts.  Responsible and ethical 
+implementation of AI technologies is crucial to strike a balance, ensuring that the benefits of AI are 
+harnessed to protect consumers from harm rather than amplify the risks they face in an increasingly 
+digital landscape.  That is why it is important that the Federal Communications Commission issues this 
+Declaratory Ruling.  
+Today, the Commission confirms that the Telephone Consumer Protection Act’s prohibition on 
+using “artificial or prerecorded voice” to make robocalls and robotexts without prior express consent of 
+the receiving party includes AI technologies that generate human voices, such as voice cloning.  This 
+Declaratory Ruling is particularly important to prevent fraudsters from using AI to prey on consumers.
