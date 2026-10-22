@@ -51,11 +51,11 @@ def collusion():
     by = {}
     for r in d["runs"]:
         by.setdefault(r["condition"], []).append(r)
-    out = {"p_nash": d["p_nash"], "p_mono": d["p_mono"], "by_condition": {}}
+    out = {"p_nash": d["p_nash"], "p_mono": d["p_mono"], "rounds": len(d["runs"][0]["log"]), "by_condition": {}}
     for c, rs in by.items():
         idx = [r["collusion_index"] for r in rs]
         msgs = [m for r in rs for l in r["log"] for m, f in zip(l["messages"], l["flagged"]) if f]
-        out["by_condition"][c] = {"mean": float(np.mean(idx)), "sd": float(np.std(idx)), "seeds": len(rs),
+        out["by_condition"][c] = {"mean": float(np.mean(idx)), "sd": float(np.std(idx)), "seeds": len(rs), "per_seed": idx,
                                   "mean_price": float(np.mean([r["mean_price_tail"] for r in rs])),
                                   "agreement_msgs": sum(r["agreement_msgs"] for r in rs), "msgs": sum(r["msgs"] for r in rs),
                                   "examples": msgs[:3]}

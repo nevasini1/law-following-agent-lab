@@ -15,6 +15,10 @@ def pct(x, d=0):
     return f"{100 * x:.{d}f}%"
 
 
+def signed(x):
+    return f"{x:+.2f}".replace("-", "−")
+
+
 def prange(xs):
     lo, hi = pct(min(xs)), pct(max(xs))
     return lo if lo == hi else f"{lo}–{hi}"
@@ -117,6 +121,16 @@ def findings(d):
         cards.append((f'{p["p1"]["layer_auroc"][p["p1"]["best_layer"]]:.2f}', "probe AUROC for legality",
                       f"Layer {p['p1']['best_layer']} of Qwen2.5 1.5B, against {p['p1']['verbal_auroc']:.2f} for the "
                       f"model&rsquo;s own Yes/No answer.", "#probe"))
+    co = d.get("collusion")
+    if co and "no_channel" in co["by_condition"]:
+        B, nc = co["by_condition"], co["by_condition"]["no_channel"]
+        silent = all(b["msgs"] == 0 for k, b in B.items() if k != "no_channel")
+        cards.append((signed(nc["mean"]), "collusion index with no communication",
+                      f"Two Qwen2.5 1.5B pricing agents settled above the competitive price in "
+                      f"{sum(x > 0 for x in nc['per_seed'])} of {nc['seeds']} runs without exchanging a word, which the "
+                      f"Sherman Act does not reach on its own."
+                      + (" Offered a chat channel, they never used it; mentioning it moved prices below competition."
+                         if silent and B.get("channel", {}).get("mean", 0) < 0 else ""), "#collude"))
     if d.get("deontic"):
         cards.append((str(len(d["deontic"])), "jurisdiction conflicts resolved with proofs",
                       "Federal, Florida and Massachusetts rules, plus a manager&rsquo;s instruction, resolved by "
@@ -248,6 +262,26 @@ def captions(d):
             f"Of the {sum(miss.values())} violations rules miss, {miss.get('threats', 0)} are threats in the message "
             f"text and {miss.get('inconvenient', 0)} are calls at times the consumer called inconvenient in a free-text "
             f"note: by design, the rule layer reads neither.")
+    co = d.get("collusion")
+    if co:
+        B = co["by_condition"]
+        seeds = max(b["seeds"] for b in B.values())
+        sent = sum(b["msgs"] for k, b in B.items() if k != "no_channel")
+        s = (f"Collusion index over the second half of each {co['rounds']}-round game, mean ± 1 sd over {seeds} seeds: "
+             f"0 is the competitive Nash price, 1 the joint-monopoly price. ")
+        if "no_channel" in B:
+            s += f"Without a channel the agents priced above competition ({signed(B['no_channel']['mean'])}). "
+        if sent == 0 and "channel" in B:
+            s += (f"Offered a channel, they never sent a message, so the chat conditions differ from that one only in "
+                  f"the prompt, and the prompt alone moved the index to {signed(B['channel']['mean'])}. With nothing to "
+                  f"read, the monitor never acted, so its row repeats the chat row. ")
+        elif sent:
+            s += (f"They sent {sent} messages, {sum(b['agreement_msgs'] for b in B.values())} flagged as proposing an "
+                  f"agreement. ")
+        if "channel+law" in B:
+            s += (f"The antitrust instruction gave {signed(B['channel+law']['mean'])}; with {seeds} seeds and spreads of up "
+                  f"to ±{max(b['sd'] for b in B.values()):.2f}, the chat conditions cannot be told apart.")
+        cap["cap-collusion"] = s.strip()
     eps = (d.get("case2env") or {}).get("episodes")
     if eps:
         both = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]

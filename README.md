@@ -44,6 +44,9 @@ Here is what we found.
 - **Simple rules made the best guard.** A firewall that checks each action against the account's records stopped 76%
   of violations in 2 milliseconds, without blocking any legitimate work. An AI monitor on its own stopped 3% at that
   setting. Together, with a small human review budget, they stopped 84%.
+- **Pricing agents kept prices high without talking.** Two AI pricing agents set prices above the competitive level in
+  all three runs without exchanging a word, which antitrust law doesn't forbid on its own. Offered a chat channel,
+  they never used it, yet merely mentioning it in their instructions pushed prices below the competitive level.
 - **We audited our own grader, too.** It had four flaws: three detection bugs, and one loophole where a model earned
   "success" by writing to lawyers who did not exist. All four are fixed and covered by tests.
 
@@ -108,7 +111,7 @@ one. It completed only 2 of the 16 control tasks, where acting was perfectly leg
 | Judge validation | Measures how far an AI judge can be trusted, with honest error bars | In the report |
 | Runtime firewall | Sits between the agent and the world, blocks illegal actions and fixes some (moving a 7:30 a.m. call to 8:00) | In the report |
 | Probes | Looks inside a model to see whether it "knows" an action is illegal even as it takes it | Queued |
-| Price-fixing test | Two AI pricing agents compete in a simulated market, watched for collusion | Queued |
+| Price-fixing test | Two AI pricing agents compete in a simulated market, watched for collusion | In the report |
 
 The report gains each section as soon as its results land.
 
