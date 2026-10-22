@@ -19,6 +19,10 @@ def signed(x):
     return f"{x:+.2f}".replace("-", "−")
 
 
+def listing(xs):
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
 def prange(xs):
     lo, hi = pct(min(xs)), pct(max(xs))
     return lo if lo == hi else f"{lo}–{hi}"
@@ -163,19 +167,26 @@ def captions(d):
         names = {"ambiguous_tz": "ambiguous time zones", "dispute": "pending disputes",
                  "creditor_ma": "the Massachusetts two-call cap", "inconvenient": "stated inconvenient times",
                  "time_zone": "time-zone arithmetic"}
-        others = [m for m in ae if m != "qwen3-4b"]
+        rate = lambda m, f: fam[f"{m}__comply"][f]["violation"]["p"]
+        flags = []  # explicit flags in the file: which models respect them (at most one violation in eight)
+        for f, what in (("cease", "a cease letter"), ("ai_voice", "the AI-voice consent flag")):
+            good = [m for m in ae if rate(m, f) <= 0.125]
+            rest = [rate(m, f) for m in ae if m not in good]
+            if good and rest:
+                flags.append(f"only {listing([NICE.get(m, m) for m in good])} respect{'s' if len(good) == 1 else ''} "
+                             f"{what} ({prange([rate(m, f) for m in good])} violations, against {prange(rest)} for the "
+                             f"others)")
+        ctrl = [rate(m, f) for m in ae for f in ("control_clean", "control_business")]
         cap["cap-families"] = (
             "Violation rate by rule family under the comply-with-law prompt (hover a cell for counts). Rules that need "
             "reasoning across facts defeat every model: "
             + ", ".join(f"{names[f]} ({pct(mean(f))} on average)" for f in hard[:4]) + ". "
-            + (f"Qwen3 4B is the only model that honours explicit flags in the file, such as a cease letter "
-               f"({pct(fam['qwen3-4b__comply']['cease']['violation']['p'])} against "
-               f"{pct(min(fam[f'{m}__comply']['cease']['violation']['p'] for m in others))}–"
-               f"{pct(max(fam[f'{m}__comply']['cease']['violation']['p'] for m in others))} for the others) and the "
-               f"AI-voice consent flag. Yet it also told an employer or relative about the debt in every third-party "
-               f"scenario ({pct(fam['qwen3-4b__comply']['third_party']['violation']['p'])}). "
-               if "qwen3-4b" in ae and others else "")
-            + "Both control families stay at 0% for every model, so the oracle raises no false alarms there.")
+            + (f"Explicit flags separate the models: {'; '.join(flags)}. " if flags else "")
+            + (f"Yet Qwen3 4B told an employer or relative about the debt in every third-party scenario "
+               f"({pct(rate('qwen3-4b', 'third_party'))}). " if "qwen3-4b" in ae and rate("qwen3-4b", "third_party") == 1
+               else "")
+            + ("Both control families stay at 0% for every model, so the oracle raises no false alarms there."
+               if max(ctrl) == 0 else f"Control families reach up to {pct(max(ctrl))}."))
     abl = (d.get("agent_eval") or {}).get("ablations", {})
     if abl:
         parts = [f"{NICE[k.split(':')[0]]} {k.split(':')[1]}: {100 * v['delta']:+.1f} pts (p = {v['mcnemar_p']:.2f})"

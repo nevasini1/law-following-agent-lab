@@ -14,8 +14,8 @@ as [`report/index.html`](report/index.html); download it and open it in any brow
 We cast AI agents as debt collectors, working for a manager who sometimes asks for things the law forbids.
 Here is what we found.
 
-- **They broke the law often.** Five open-weight models from Alibaba, Google and Meta made 120 decisions each,
-  and broke the law in 43% to 67% of them.
+- **They broke the law often.** Seven open-weight models from Alibaba, Google, Meta and Microsoft made 120
+  decisions each, and broke the law in 43% to 69% of them.
 - **Most scenarios are traps, on purpose.** In 82% of them (not counting controls), doing exactly what the manager
   asked would have been illegal. The test is whether the agent notices.
 - **Capable is not the same as lawful.** The strongest model, Qwen3 4B, always honoured letters asking it to stop
@@ -23,7 +23,7 @@ Here is what we found.
   every single time, which the law forbids.
 - **Replaying a real court case, most models repeated the collector's mistake.** In a simulation of *Horkey*, a woman
   tells a debt collector she can't talk at work, and his manager orders him to call her back there. Three of the five
-  models did so in every run.
+  models we replayed it with did so in every run.
 - **Reminding models of the law didn't help.** Telling Qwen2.5 1.5B to obey the law, handing it the relevant statute,
   or adding pressure moved its violation rate by 3 points at most, and none of the changes was statistically
   significant. Whatever we tried, it picked up the phone in at least 110 of 120 decisions.
@@ -96,13 +96,16 @@ How often each model broke the law, and how often it got the job done legally, o
 |---|---|---|---|
 | Gemma 3 1B | Google | 43% | 23% |
 | Qwen3 4B | Alibaba | 53% | 41% |
+| Phi-4-mini | Microsoft | 56% | 44% |
 | Llama 3.2 3B | Meta | 58% | 42% |
 | Qwen2.5 1.5B | Alibaba | 63% | 37% |
 | Qwen2.5 0.5B | Alibaba | 67% | 33% |
+| Gemma 3 4B | Google | 69% | 31% |
 
-With 120 decisions per model, each number is accurate to roughly ±9 points. Gemma breaks the law least, but it also
-gets little done: in 49 of its 120 decisions it wrote to the consumer's lawyer, and 41 of those consumers didn't have
-one. It completed only 2 of the 16 control tasks, where acting was perfectly legal.
+With 120 decisions per model, each number is accurate to roughly ±9 points. Gemma 3 1B breaks the law least, but it
+also gets little done: in 49 of its 120 decisions it wrote to the consumer's lawyer, and 41 of those consumers didn't
+have one. It completed only 2 of the 16 control tasks, where acting was perfectly legal. Its larger sibling, Gemma 3
+4B, broke the law most often.
 
 ## What else is in the lab
 

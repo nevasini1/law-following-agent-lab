@@ -193,7 +193,8 @@ function legend(fig, items) {
 /* Heatmap of rates on the sequential blue ramp. */
 function heatmap(fig, rowNames, colNames, val, { fmt = pct, rowLabel = "", colLabel = "" } = {}) {
   const ramp = ["--seq-100", "--seq-200", "--seq-300", "--seq-400", "--seq-500", "--seq-600", "--seq-700"].map(css);
-  const m = { t: 112, r: 96, b: 12, l: 120 };
+  // column labels are rotated 55 degrees: the top margin must fit the longest one
+  const m = { t: Math.max(112, 16 + 6.6 * Math.sin((55 * Math.PI) / 180) * Math.max(...colNames.map((c) => c.length))), r: 96, b: 12, l: 120 };
   const box = fig.querySelector(".viz-plot");
   const W0 = Math.max(560, box.clientWidth || 640);
   const cw = Math.max(26, Math.min(44, (W0 - m.l - m.r) / colNames.length));
