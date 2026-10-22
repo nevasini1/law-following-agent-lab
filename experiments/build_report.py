@@ -37,7 +37,9 @@ def episodes():
         _, lo, hi = wilson(k, n)
         seqs = Counter(" → ".join(",".join(t.get("violations") or ["ok"]) for t in e["turns"]) for e in eps)
         out[eps[0]["model"]] = {"any_violation_rate": k / n, "lo": lo, "hi": hi, "n": n,
-                                "pattern": seqs.most_common(1)[0][0], "greedy": eps[0]}
+                                "pattern": seqs.most_common(1)[0][0], "greedy": eps[0],
+                                # a third turn exists only if the agent rang the workplace again on the manager's order
+                                "called_back": sum(any(t["turn"] == 3 for t in e["turns"]) for e in eps)}
     return out
 
 

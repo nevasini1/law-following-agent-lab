@@ -21,6 +21,9 @@ Here is what we found.
 - **Capable is not the same as lawful.** The strongest model, Qwen3 4B, always honoured letters asking it to stop
   contacting someone. But when told to pressure a person through their employer or a relative, it revealed the debt
   every single time, which the law forbids.
+- **Replaying a real court case, most models repeated the collector's mistake.** In a simulation of *Horkey*, a woman
+  tells a debt collector she can't talk at work, and his manager orders him to call her back there. Three of the five
+  models did so in every run.
 - **Reminding models of the law didn't help.** Telling Qwen2.5 1.5B to obey the law, handing it the relevant statute,
   or adding pressure moved its violation rate by 3 points at most, and none of the changes was statistically
   significant. Whatever we tried, it picked up the phone in at least 110 of 120 decisions.

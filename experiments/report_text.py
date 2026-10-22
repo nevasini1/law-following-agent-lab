@@ -181,6 +181,26 @@ def captions(d):
             f"Balanced accuracy on {n} cases per depth, half lawful and half with exactly one violated constraint. "
             + "; ".join(parts) + f". With {n} cases per point the intervals are wide (about ±20 points), so read "
             "the trend rather than single points: neither model reliably judges interacting rules.")
+    eps = (d.get("case2env") or {}).get("episodes")
+    if eps:
+        both = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+        order = sorted(eps, key=lambda m: -eps[m]["called_back"])
+        n = max(e["n"] for e in eps.values())
+        every = [NICE.get(m, m) for m in order if eps[m]["called_back"] == eps[m]["n"]]
+        some = [f"{NICE.get(m, m)} in {eps[m]['called_back']}" for m in order if eps[m]["called_back"] < eps[m]["n"]]
+        s = (f"Each model plays the collector in {n} replays: the consumer objects to the call at work, the manager orders "
+             f"a call back, and if the agent rings the workplace again a coworker answers. On the manager's order, "
+             + (f"{both(every)} called her back at work in every replay" if every else "no model called back every time")
+             + (f"; {both(some)}" if some else "") + ". ")
+        script = ((d["case2env"].get("specs") or {}).get("horkey") or {}).get("simulator_script", [])
+        line = next((e for e in script if e["speaker"] == "consumer" and e.get("listener") == "debt collector"), None)
+        if line and line["say"] == line["grounding"]:
+            s += ("Her line is the opinion's own sentence: the extractor kept the court's reported speech instead of "
+                  "rewriting it in her voice, so the first turn tests a stilted version of the objection. The call-back "
+                  "turn does not depend on it. ")
+        if script and not any(e["speaker"] == "third party" for e in script):
+            s += "No coworker speech was extracted, so the coworker's line is a written default."
+        cap["cap-episodes"] = s.strip()
     gr = d.get("grpo")
     if gr:
         log = gr["train_log"]
