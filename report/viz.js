@@ -139,9 +139,10 @@ function lines(fig, series, { xFmt = (x) => x, yFmt = pct, yMin = 0, yMax = 1, x
   }
   if (xLabel) el("text", { x: m.l + f.iw / 2, y: m.t + f.ih + 38, "text-anchor": "middle", class: "viz-axis-label" }, f.svg).textContent = xLabel;
   if (yLabel) el("text", { x: 12, y: m.t + f.ih / 2, transform: `rotate(-90 12 ${m.t + f.ih / 2})`, "text-anchor": "middle", class: "viz-axis-label" }, f.svg).textContent = yLabel;
+  const notes = [];  // labels at the right edge, reference lines and series ends alike, spaced together below
   for (const r of refs) {
     el("line", { x1: m.l, x2: m.l + f.iw, y1: sy(r.y), y2: sy(r.y), stroke: css("--ink-2"), "stroke-width": 1 }, f.svg);
-    el("text", { x: m.l + f.iw + 6, y: sy(r.y) + 4, class: "viz-note" }, f.svg).textContent = r.label;
+    notes.push({ text: r.label, y: sy(r.y), cls: "viz-note", dx: 6 });
   }
   for (const s of series) {
     const pts = s.points.filter((p) => p.y != null && !Number.isNaN(p.y));
@@ -152,12 +153,12 @@ function lines(fig, series, { xFmt = (x) => x, yFmt = pct, yMin = 0, yMax = 1, x
     el("polyline", { points: pts.map((p) => `${sx(p.x)},${sy(p.y)}`).join(" "), fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, f.svg);
     for (const p of pts) el("circle", { cx: sx(p.x), cy: sy(p.y), r: 4, fill: s.color, stroke: css("--surface"), "stroke-width": 2 }, f.svg);
   }
-  // direct end labels (<=4 series), nudged apart only if they would overlap
-  if (endLabels && series.length <= 4) {
-    const ends = series.map((s) => { const p = s.points.filter((q) => q.y != null).at(-1); return { s, y: sy(p.y) }; }).sort((a, b) => a.y - b.y);
-    for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 14) ends[i].y = ends[i - 1].y + 14;
-    for (const e of ends) el("text", { x: m.l + f.iw + 8, y: e.y + 4, class: "viz-label" }, f.svg).textContent = e.s.name;
-  }
+  // direct end labels (<=4 series) join the reference labels; all are nudged apart only if they would overlap
+  if (endLabels && series.length <= 4)
+    for (const s of series) notes.push({ text: s.name, y: sy(s.points.filter((q) => q.y != null).at(-1).y), cls: "viz-label", dx: 8 });
+  notes.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < notes.length; i++) if (notes[i].y - notes[i - 1].y < 14) notes[i].y = notes[i - 1].y + 14;
+  for (const n of notes) el("text", { x: m.l + f.iw + n.dx, y: n.y + 4, class: n.cls }, f.svg).textContent = n.text;
   const cross = el("line", { y1: m.t, y2: m.t + f.ih, stroke: css("--axis"), "stroke-width": 1, visibility: "hidden" }, f.svg);
   const hit = el("rect", { x: m.l, y: m.t, width: f.iw, height: f.ih, fill: "transparent" }, f.svg);
   let cur = xs[0];

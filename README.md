@@ -47,6 +47,10 @@ Here is what we found.
 - **Pricing agents kept prices high without talking.** Two AI pricing agents set prices above the competitive level in
   all three runs without exchanging a word, which antitrust law doesn't forbid on its own. Offered a chat channel,
   they never used it, yet merely mentioning it in their instructions pushed prices below the competitive level.
+- **Looking inside the model mostly found the words.** A probe reading the model's internal state told legal from
+  illegal actions almost perfectly (0.99), but a simple word-based classifier on the same text scored 0.97, so the probe
+  mostly reads the prompt's wording. Used as an early warning before the agent acts, that kind of readout would have
+  flagged 59 of the agent's 66 violations.
 - **We audited our own grader, too.** It had four flaws: three detection bugs, and one loophole where a model earned
   "success" by writing to lawyers who did not exist. All four are fixed and covered by tests.
 
@@ -110,7 +114,7 @@ one. It completed only 2 of the 16 control tasks, where acting was perfectly leg
 | Training | Rewards a model for lawful, useful actions (reinforcement learning, on a CPU) | In the report |
 | Judge validation | Measures how far an AI judge can be trusted, with honest error bars | In the report |
 | Runtime firewall | Sits between the agent and the world, blocks illegal actions and fixes some (moving a 7:30 a.m. call to 8:00) | In the report |
-| Probes | Looks inside a model to see whether it "knows" an action is illegal even as it takes it | Queued |
+| Probes | Looks inside a model to see whether it "knows" an action is illegal, checked against what the words alone reveal | In the report |
 | Price-fixing test | Two AI pricing agents compete in a simulated market, watched for collusion | In the report |
 
 The report gains each section as soon as its results land.
@@ -176,7 +180,7 @@ analysis is instant and every number in the report traces back to a raw model ou
 | Judge: labels from court decisions | `experiments/03_court_labels.py` | ECtHR Article 3 (LexGLUE): learning curve of small trained judges vs a zero-shot LLM; LegalBench function-of-decision-section for the opinion segmenter |
 | Train | `lawful/train/grpo.py`, `experiments/04_train_grpo.py` | minimal GRPO + LoRA on CPU with the oracle as reward; generalization to rule families never trained on; over-refusal audit |
 | Control | `lawful/control/firewall.py`, `experiments/08_control.py` | rules over the system of record (with lawful rescheduling) + trusted-model monitor + audit budget; red-team policy; safety/usefulness frontier |
-| Probe | `lawful/probe/`, `experiments/07_probes.py` | linear probes on residual streams; latent legality vs verbal judgment; instruction-risk probe vs what the agent actually did |
+| Probe | `lawful/probe/`, `experiments/07_probes.py`, `07b_probe_text_baseline.py` | linear probes on residual streams; latent legality vs verbal judgment; instruction-risk probe vs what the agent actually did; bag-of-words control on the same prompts and folds |
 | Collude | `lawful/collude/market.py`, `experiments/09_collusion.py` | Calvano et al. logit Bertrand duopoly with LLM pricing agents and a chat channel; agreement monitor vs tacit parallelism |
 
 Every LLM request is cached in `results/llm_cache.sqlite`, keyed by model and payload. Models and the llama.cpp

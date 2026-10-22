@@ -236,6 +236,18 @@ def grpo():
     return out
 
 
+def probes():
+    path = RESULTS / "probes" / "results.json"
+    if not path.exists():
+        return None
+    out = json.loads(path.read_text())
+    tb = RESULTS / "probes" / "text_baseline.json"
+    if tb.exists():  # experiments/07b_probe_text_baseline.py: the same prompts, folds and labels, words only
+        out["text_baseline"] = json.loads(tb.read_text())
+    (SUM / "probes.json").write_text(json.dumps(out))
+    return out
+
+
 def copy_if(name):
     path = RESULTS / name / "results.json"
     if path.exists():
@@ -243,14 +255,13 @@ def copy_if(name):
 
 
 def main():
-    for fn in (agent_eval, reasoning, judges, court_labels, grpo):
+    for fn in (agent_eval, reasoning, judges, court_labels, grpo, probes):
         try:
             r = fn()
             print(f"{fn.__name__}: {'ok' if r is not None else 'no results yet'}")
         except FileNotFoundError as e:
             print(f"{fn.__name__}: missing input ({e.filename})")
-    for name in ("control", "probes"):
-        copy_if(name)
+    copy_if("control")
 
 
 if __name__ == "__main__":

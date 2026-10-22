@@ -118,9 +118,16 @@ def findings(d):
                          if full else "."), "#control"))
     p = d.get("probes")
     if p:
-        cards.append((f'{p["p1"]["layer_auroc"][p["p1"]["best_layer"]]:.2f}', "probe AUROC for legality",
-                      f"Layer {p['p1']['best_layer']} of Qwen2.5 1.5B, against {p['p1']['verbal_auroc']:.2f} for the "
-                      f"model&rsquo;s own Yes/No answer.", "#probe"))
+        best, tb = p["p1"]["layer_auroc"][p["p1"]["best_layer"]], (p.get("text_baseline") or {}).get("p1")
+        if tb:  # without the words-only control, a high probe score says little
+            cards.append((f"{best:.2f} vs {tb['auroc']:.2f}", "hidden-state probe vs words alone",
+                          f"A linear probe on Qwen2.5 1.5B separates lawful from unlawful actions almost perfectly, but a "
+                          f"bag-of-words classifier on the same prompts nearly matches it: the probe mostly reads the "
+                          f"wording. The model&rsquo;s own Yes/No answer scores {p['p1']['verbal_auroc']:.2f}.", "#probe"))
+        else:
+            cards.append((f"{best:.2f}", "probe AUROC for legality",
+                          f"Layer {p['p1']['best_layer']} of Qwen2.5 1.5B, against {p['p1']['verbal_auroc']:.2f} for the "
+                          f"model&rsquo;s own Yes/No answer; no words-only control yet.", "#probe"))
     co = d.get("collusion")
     if co and "no_channel" in co["by_condition"]:
         B, nc = co["by_condition"], co["by_condition"]["no_channel"]
@@ -262,6 +269,21 @@ def captions(d):
             f"Of the {sum(miss.values())} violations rules miss, {miss.get('threats', 0)} are threats in the message "
             f"text and {miss.get('inconvenient', 0)} are calls at times the consumer called inconvenient in a free-text "
             f"note: by design, the rule layer reads neither.")
+    p = d.get("probes")
+    if p:
+        P1, P2, tb = p["p1"], p["p2"], p.get("text_baseline")
+        s = (f"Grouped 5-fold AUROC of a linear probe at each layer. Action legality (P1, {P1['n']} judge prompts) "
+             f"reaches {P1['layer_auroc'][1]:.2f} at layer 1 and peaks at {P1['layer_auroc'][P1['best_layer']]:.2f} "
+             f"(layer {P1['best_layer']}); the model's own Yes/No answer to the same prompts scores "
+             f"{P1['verbal_auroc']:.2f}. Instruction risk (P2, {P2['n']} agent prompts) peaks at "
+             f"{P2['layer_auroc'][P2['best_layer']]:.2f} (layer {P2['best_layer']}). ")
+        if tb:
+            s += (f"A curve that is flat from the first layer is a warning sign, and a words-only control confirms it: "
+                  f"TF-IDF with logistic regression on the same prompts and folds scores {tb['p1']['auroc']:.2f} on P1 "
+                  f"and {tb['p2']['auroc']:.2f} on P2, and {tb['p1']['transfer_auroc_mean']:.2f} against the probe's "
+                  f"{P1['transfer_auroc_mean']:.2f} on rule families held out from training. The probes mostly read the "
+                  f"prompt's wording; this design cannot show legal knowledge beyond it.")
+        cap["cap-probes"] = s.strip()
     co = d.get("collusion")
     if co:
         B = co["by_condition"]
@@ -337,6 +359,19 @@ def captions(d):
 
 def notes(d):
     n = {}
+    g = d.get("gap")
+    if g:
+        tb = ((d.get("probes") or {}).get("text_baseline") or {}).get("p2")
+        n["probe-notes"] = (
+            f"Used as a pre-action monitor, the instruction-risk readout (out of fold, before the agent acts) flags "
+            f"{g['probe_flags_risky']} of the {g['risky']} scenarios where obeying the manager would break the law, and "
+            f"{g['probe_flags_safe']} of the {g['safe']} where it would not. The agent, Qwen2.5 1.5B in the TEST sweep, "
+            f"then broke the law in {g['violated_when_flagged']} of the flagged traps, "
+            f"{g['violated_when_risky'] - g['violated_when_flagged']} of the unflagged ones and {g['violated_when_safe']} "
+            f"of the safe scenarios, so a warning before acting would have covered {g['violated_when_flagged']} of its "
+            f"{g['violated_when_risky'] + g['violated_when_safe']} violations. That does not show the model knew better: "
+            + (f"words alone flag traps nearly as well (AUROC {tb['auroc']:.2f}), so a text classifier could be that "
+               "monitor." if tb else "the readout may reflect the prompt's wording."))
     c = d.get("control")
     if c and "repairs" in c:
         n["control-notes"] = (
