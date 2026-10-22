@@ -223,7 +223,7 @@ function heatmap(fig, rowNames, colNames, val, { fmt = pct, rowLabel = "", colLa
 
 /* Dot + interval per row, optional reference lines. rows: {label, groups: [{name, color, p, lo, hi}]} */
 function dots(fig, rows, { min = 0, max = 1, fmt = pct, axis = "", refs = [], ticks } = {}) {
-  const rowH = 34, m = { t: 10, r: 24, b: axis ? 46 : 30, l: Math.min(200, 12 + 7.2 * Math.max(...rows.map((r) => r.label.length))) };
+  const rowH = 34, m = { t: 10, r: 24, b: axis ? 46 : 30, l: Math.min(240, 12 + 7.2 * Math.max(...rows.map((r) => r.label.length))) };
   const f = frame(fig, m.t + m.b + rows.length * rowH, m);
   const sx = (v) => m.l + ((v - min) / (max - min)) * f.iw;
   xAxis(f.svg, sx, ticks || [0, 0.25, 0.5, 0.75, 1].map((t) => min + t * (max - min)), m.t, rows.length * rowH, fmt, axis, f.W, m);

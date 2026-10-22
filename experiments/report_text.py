@@ -7,6 +7,7 @@ Blocks whose experiments have no results are dropped by the build, not described
 NICE = {"qwen2.5-0.5b": "Qwen2.5 0.5B", "gemma3-1b": "Gemma 3 1B", "qwen2.5-1.5b": "Qwen2.5 1.5B",
         "llama3.2-3b": "Llama 3.2 3B", "phi4-mini": "Phi-4-mini", "gemma3-4b": "Gemma 3 4B", "qwen3-4b": "Qwen3 4B"}
 WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven"}
+ACTS = {"call": "a call", "email": "an email", "letter": "a letter", "sms": "a text message", "no_action": "no action"}
 
 
 def pct(x, d=0):
@@ -78,9 +79,20 @@ def findings(d):
                           f"{NICE.get(best, best)} prompted as a legal judge.", "#judge"))
     gr = d.get("grpo")
     if gr:
-        b, t = gr["eval"]["base"]["heldout_families"], gr["eval"]["trained"]["heldout_families"]
-        cards.append((f'{pct(b["violation"]["p"])} &rarr; {pct(t["violation"]["p"])}', "violations on unseen rule families",
-                      "GRPO with the oracle as reward, 40 steps of LoRA on Qwen2.5 0.5B, CPU only.", "#train"))
+        B, T = gr["eval"]["base"], gr["eval"]["trained"]
+        tool, k = max(T["tools"].items(), key=lambda kv: kv[1])
+        n = sum(T["tools"].values())
+        if k >= 0.9 * n:  # the policy collapsed onto one action: that, not the averages, is the finding
+            cards.append((f"{k} of {n}", f"test decisions answered with {ACTS.get(tool, tool)} after training",
+                          f"Rewarded by the oracle, Qwen2.5 0.5B found a safe harbor instead of the law. Lawful success rose "
+                          f"from {pct(B['all']['success']['p'])} to {pct(T['all']['success']['p'])}, but it stopped choosing "
+                          f"anything else, and violations did not fall ({pct(B['all']['violation']['p'])} &rarr; "
+                          f"{pct(T['all']['violation']['p'])}).", "#train"))
+        else:
+            b, t = B["heldout_families"], T["heldout_families"]
+            cards.append((f'{pct(b["success"]["p"])} &rarr; {pct(t["success"]["p"])}', "lawful success on unseen rule families",
+                          f"GRPO with the oracle as reward, {len(gr['train_log'])} steps of LoRA on Qwen2.5 0.5B, CPU only. "
+                          f"Violations: {pct(b['violation']['p'])} &rarr; {pct(t['violation']['p'])}.", "#train"))
     c = d.get("control")
     if c and c["fixed"].get("rules+repair"):
         r = c["fixed"]["rules+repair"]
@@ -169,6 +181,36 @@ def captions(d):
             f"Balanced accuracy on {n} cases per depth, half lawful and half with exactly one violated constraint. "
             + "; ".join(parts) + f". With {n} cases per point the intervals are wide (about ±20 points), so read "
             "the trend rather than single points: neither model reliably judges interacting rules.")
+    gr = d.get("grpo")
+    if gr:
+        log = gr["train_log"]
+        avg = lambda rs, k: pct(sum(r[k] for r in rs) / len(rs))
+        cap["cap-grpo-curve"] = (
+            f"Sampled rollouts on the eight training families over {len(log)} steps. From the first ten steps to the last "
+            f"ten, violations went from {avg(log[:10], 'violation')} to {avg(log[-10:], 'violation')}, success from "
+            f"{avg(log[:10], 'success')} to {avg(log[-10:], 'success')} and well-formed actions from "
+            f"{avg(log[:10], 'format')} to {avg(log[-10:], 'format')}. The curve shows that the policy learned; the "
+            "evaluation shows what it learned.")
+        B, T = gr["eval"]["base"], gr["eval"]["trained"]
+        tool, k = max(T["tools"].items(), key=lambda kv: kv[1])
+        n, fv = sum(T["tools"].values()), T["family_violations"]
+        p = lambda x: "p < 0.001" if x < 0.001 else f"p = {x:.2f}"
+        s = (f"The same {n} TEST scenarios before and after training, with Wilson 95% intervals. Well-formed actions went "
+             f"from {pct(B['all']['format']['p'])} to {pct(T['all']['format']['p'])} and lawful success from "
+             f"{pct(B['all']['success']['p'])} to {pct(T['all']['success']['p'])} ({p(gr['mcnemar_success'])}, exact "
+             f"McNemar); violations went from {pct(B['all']['violation']['p'])} to {pct(T['all']['violation']['p'])} "
+             f"({p(gr['mcnemar_violation'])}). The untrained model often produced no valid action, which cannot break a "
+             f"rule; counting only well-formed actions, violations went from {pct(B['all']['violation_valid']['p'])} to "
+             f"{pct(T['all']['violation_valid']['p'])}. ")
+        if k >= 0.9 * n:
+            s += (f"But the gain is a collapse onto a safe harbor: the trained policy answered {k} of {n} decisions with "
+                  f"{ACTS.get(tool, tool)} and made {T['lawful_calls']} lawful calls, against {B['lawful_calls']} before. "
+                  f"Its violations are the cases where even that is unlawful, such as consumers who disputed the debt "
+                  f"({fv['dispute'][0]} of {fv['dispute'][1]}) or asked it to stop ({fv['cease'][0]} of "
+                  f"{fv['cease'][1]}). ")
+        s += (f"All {T['controls_success']['n']} control tasks succeed after training, against "
+              f"{B['controls_success']['k']} before, so the failure is not over-refusal.")
+        cap["cap-grpo-eval"] = s
     return cap
 
 

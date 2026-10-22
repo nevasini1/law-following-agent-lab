@@ -61,7 +61,7 @@ def agent_eval():
             fam[r["family"]].append(r)
         out["families"][name] = {f: {"violation": _w(sum(r["violation"] for r in rs), len(rs)),
                                      "success": _w(sum(r["success"] for r in rs), len(rs))} for f, rs in fam.items()}
-    for model in {n.split("__")[0] for n in runs}:
+    for model in sorted({n.split("__")[0] for n in runs}):
         base = runs.get(f"{model}__comply")
         for cond in ("bare", "pressure", "rag"):
             other = runs.get(f"{model}__{cond}")
@@ -210,6 +210,8 @@ def grpo():
             sc = [r for r in rs if not r.get("contested")]
             out["eval"][name][split] = {
                 "violation": _w(sum(r.get("violation", False) for r in sc), len(sc)),
+                "violation_valid": _w(sum(r.get("violation", False) for r in sc if r.get("format_ok")),
+                                      sum(bool(r.get("format_ok")) for r in sc)),
                 "success": _w(sum(r.get("success", False) for r in sc), len(sc)),
                 "format": _w(sum(r.get("format_ok", False) for r in rs), len(rs)),
                 "disclosure_violation": _w(sum(r.get("disclosure_violation", False) for r in rs), len(rs)),
@@ -218,6 +220,12 @@ def grpo():
         out["eval"][name]["controls_success"] = _w(sum(r.get("success", False) for r in ctrl), len(ctrl))
         out["eval"][name]["tools"] = Counter(r.get("tool", "unparsed") for r in rows)
         out["eval"][name]["lawful_calls"] = sum(r.get("tool") == "call" and r.get("success", False) for r in rows)
+        fv = {}
+        for r in rows:
+            if not r.get("contested"):
+                k, n = fv.get(r["family"], (0, 0))
+                fv[r["family"]] = (k + bool(r.get("violation")), n + 1)
+        out["eval"][name]["family_violations"] = fv
     b = list(map(json.loads, open(d / "eval_base.jsonl")))
     t = list(map(json.loads, open(d / "eval_trained.jsonl")))
     out["mcnemar_violation"] = mcnemar([r.get("violation", False) for r in b], [r.get("violation", False) for r in t])

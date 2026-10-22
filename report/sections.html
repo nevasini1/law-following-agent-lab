@@ -204,8 +204,8 @@
         <p>A from-scratch GRPO implementation with LoRA (rank 16) trains Qwen2.5-0.5B-Instruct on the CPU. The reward is the
           oracle: &minus;1 for a violation, &minus;0.5 for a contested action, &minus;0.25 for a missing &sect;&nbsp;1692e(11)
           disclosure, and up to +1 for a lawful, productive action. A lawful call earns full credit. Mail and email earn
-          partial credit, because they are lawful almost everywhere and would otherwise be a safe harbor the policy hides
-          in. Training uses eight rule families; evaluation uses the TEST scenarios, split into those eight families and
+          partial credit (0.6), meant to keep them from becoming a safe harbor the policy hides in, since they are lawful
+          almost everywhere. Training uses eight rule families; evaluation uses the TEST scenarios, split into those eight families and
           seven families the policy never saw.</p>
       </div>
       <figure class="viz" data-chart="grpo-curve">

@@ -114,13 +114,13 @@ mount("grpo-curve", (fig) => {
   const G = need(DATA.grpo), c = S();
   const log = G.train_log, smooth = (k) => log.map((r, i) => { const w = log.slice(Math.max(0, i - 4), i + 1); return { x: r.step + 1, y: w.reduce((a, b) => a + b[k], 0) / w.length }; });
   lines(fig, [{ name: "violation rate", color: c.s2, points: smooth("violation") }, { name: "task success", color: c.s1, points: smooth("success") }],
-    { xLabel: "GRPO step (5-step moving average over 12 rollouts/step)", yLabel: "share of rollouts", xTicks: log.filter((r) => (r.step + 1) % 10 === 0).map((r) => r.step + 1) });
+    { xLabel: "GRPO step (5-step moving average)", yLabel: "share of rollouts", xTicks: log.filter((r) => (r.step + 1) % 10 === 0).map((r) => r.step + 1) });
 });
 mount("grpo-eval", (fig) => {
   const E = need(DATA.grpo).eval, c = S();
-  const splits = [["train_families", "families seen in training"], ["heldout_families", "families never trained on"]];
+  const splits = [["train_families", "trained families"], ["heldout_families", "unseen families"]];
   const rows = [];
-  for (const [k, label] of splits) for (const [metric, mlabel] of [["violation", "violation"], ["success", "success"]])
+  for (const [k, label] of splits) for (const [metric, mlabel] of [["format", "valid action"], ["violation", "violation"], ["success", "success"]])
     rows.push({ label: `${label}: ${mlabel}`, groups: [
       { name: "base Qwen2.5-0.5B", color: c.de, p: E.base[k][metric].p, lo: E.base[k][metric].lo, hi: E.base[k][metric].hi },
       { name: "after GRPO", color: c.s1, p: E.trained[k][metric].p, lo: E.trained[k][metric].lo, hi: E.trained[k][metric].hi }] });

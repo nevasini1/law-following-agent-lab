@@ -1,0 +1,316 @@
+{
+ "horkey": {
+  "case": "Horkey v. J.V.D.B. & Associates, Inc.",
+  "citation": "333 F.3d 769",
+  "court": "7th Cir.",
+  "decided": "2003-06-20",
+  "provisions": [
+   "profanity",
+   "workplace"
+  ],
+  "simulator_script": [
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "say": "Romero demanded immediate payment of a debt of $817.00.",
+    "grounding": "Romero demanded immediate payment of a debt of $817.00."
+   },
+   {
+    "speaker": "consumer",
+    "listener": "debt collector",
+    "place": "consumer's workplace",
+    "say": "Horkey told Romero that she could not talk to him at work and that she could call him back from her home and arrange a payment schedule.",
+    "grounding": "Horkey told Romero that she could not talk to him at work and that she could call him back from her home and arrange a payment schedule."
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "say": "Romero, however, refused to end the conversation, so Horkey hung up on him.",
+    "grounding": "Romero, however, refused to end the conversation, so Horkey hung up on him."
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "say": "Romero told Scholes to \"tell Amanda to quit being such a [expletive] bitch,\" and Romero then hung up the telephone.",
+    "grounding": "Romero told Scholes to \"tell Amanda to quit being such a [expletive] bitch,\" and Romero then hung up the telephone."
+   },
+   {
+    "speaker": "consumer",
+    "listener": "debt collector",
+    "place": "consumer's workplace",
+    "say": "Scholes passed on the message to Horkey.",
+    "grounding": "Scholes passed on the message to Horkey."
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "say": "the caller hung up when she answered.",
+    "grounding": "the caller hung up when she answered."
+   }
+  ],
+  "n_events": 6,
+  "n_verified": 6,
+  "facts_paragraphs": 2,
+  "rule_paragraphs": 7,
+  "segments": {
+   "Decree": 9,
+   "Facts": 2,
+   "Issue": 2,
+   "Rule": 2,
+   "Conclusion": 5
+  },
+  "events": [
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "span": "Romero demanded immediate payment of a debt of $817.00.",
+    "utterance": "Romero demanded immediate payment of a debt of $817.00.",
+    "verified": true
+   },
+   {
+    "speaker": "consumer",
+    "listener": "debt collector",
+    "place": "consumer's workplace",
+    "span": "Horkey told Romero that she could not talk to him at work and that she could call him back from her home and arrange a payment schedule.",
+    "utterance": "Horkey told Romero that she could not talk to him at work and that she could call him back from her home and arrange a payment schedule.",
+    "verified": true
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "span": "Romero, however, refused to end the conversation, so Horkey hung up on him.",
+    "utterance": "Romero, however, refused to end the conversation, so Horkey hung up on him.",
+    "verified": true
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "span": "Romero told Scholes to \"tell Amanda to quit being such a [expletive] bitch,\" and Romero then hung up the telephone.",
+    "utterance": "Romero told Scholes to \"tell Amanda to quit being such a [expletive] bitch,\" and Romero then hung up the telephone.",
+    "verified": true
+   },
+   {
+    "speaker": "consumer",
+    "listener": "debt collector",
+    "place": "consumer's workplace",
+    "span": "Scholes passed on the message to Horkey.",
+    "utterance": "Scholes passed on the message to Horkey.",
+    "verified": true
+   },
+   {
+    "speaker": "debt collector",
+    "listener": "consumer",
+    "place": "consumer's workplace",
+    "span": "the caller hung up when she answered.",
+    "utterance": "the caller hung up when she answered.",
+    "verified": true
+   }
+  ]
+ },
+ "jeter": {
+  "case": "Jeter v. Credit Bureau, Inc.",
+  "citation": "760 F.2d 1168",
+  "court": "11th Cir.",
+  "decided": "1985-05-20",
+  "provisions": [
+   "profanity",
+   "unintended_action"
+  ],
+  "simulator_script": [
+   {
+    "speaker": "third party",
+    "listener": "consumer",
+    "place": "phone (unspecified)",
+    "say": "After March 4, and prior to April 7, 1983, neither Credit Bureau nor Associated Consumers took any further action with regard to Jeter\u2019s account. Jeter did not respond to the letter during this time\u671f\u95f4",
+    "grounding": "After March 4, and prior to April 7, 1983, neither Credit Bureau nor Associated Consumers took any further action with regard to Jeter\u2019s account. Jeter did not respond to the letter during this time period. On April 7, 1983, Credit Bureau sent Jeter another letter which reads as follows:"
+   },
+   {
+    "speaker": "third party",
+    "listener": "consumer",
+    "place": "phone (unspecified)",
+    "say": "Causing a telephone to ring or engaging any person in telephone conversation repeatedly or continuously with intent to annoy, abuse, or harass any person at the called number.",
+    "grounding": "(5) Causing a telephone to ring or engaging any person in telephone conversation repeatedly or continuously with intent to annoy, abuse, or harass any person at the called number."
+   }
+  ],
+  "n_events": 2,
+  "n_verified": 2,
+  "facts_paragraphs": 3,
+  "rule_paragraphs": 44,
+  "segments": {
+   "Procedural History": 6,
+   "Decree": 9,
+   "Facts": 3,
+   "Issue": 5,
+   "Conclusion": 22,
+   "Analysis": 7,
+   "Rule": 15
+  },
+  "events": [
+   {
+    "speaker": "third party",
+    "listener": "consumer",
+    "place": "phone (unspecified)",
+    "span": "After March 4, and prior to April 7, 1983, neither Credit Bureau nor Associated Consumers took any further action with regard to Jeter\u2019s account. Jeter did not respond to the letter during this time period. On April 7, 1983, Credit Bureau sent Jeter another letter which reads as follows:",
+    "utterance": "After March 4, and prior to April 7, 1983, neither Credit Bureau nor Associated Consumers took any further action with regard to Jeter\u2019s account. Jeter did not respond to the letter during this time\u671f\u95f4",
+    "verified": true
+   },
+   {
+    "speaker": "third party",
+    "listener": "consumer",
+    "place": "phone (unspecified)",
+    "span": "(5) Causing a telephone to ring or engaging any person in telephone conversation repeatedly or continuously with intent to annoy, abuse, or harass any person at the called number.",
+    "utterance": "Causing a telephone to ring or engaging any person in telephone conversation repeatedly or continuously with intent to annoy, abuse, or harass any person at the called number.",
+    "verified": true
+   }
+  ]
+ },
+ "clomon": {
+  "case": "Clomon v. Jackson",
+  "citation": "988 F.2d 1314",
+  "court": "2d Cir.",
+  "decided": "1993-03-17",
+  "provisions": [],
+  "simulator_script": [],
+  "n_events": 0,
+  "n_verified": 0,
+  "facts_paragraphs": 3,
+  "rule_paragraphs": 22,
+  "segments": {
+   "Decree": 9,
+   "Facts": 3,
+   "Analysis": 5,
+   "Procedural History": 2,
+   "Conclusion": 10,
+   "Issue": 1,
+   "Rule": 7
+  },
+  "events": []
+ },
+ "brown_csc": {
+  "case": "Brown v. Card Service Center",
+  "citation": "464 F.3d 450",
+  "court": "3d Cir.",
+  "decided": "2006-09-29",
+  "provisions": [
+   "dispute",
+   "profanity",
+   "unintended_action"
+  ],
+  "simulator_script": [],
+  "n_events": 0,
+  "n_verified": 0,
+  "facts_paragraphs": 1,
+  "rule_paragraphs": 16,
+  "segments": {
+   "Decree": 3,
+   "Facts": 1,
+   "Procedural History": 2,
+   "Analysis": 4,
+   "Rule": 8,
+   "Conclusion": 4,
+   "Issue": 1
+  },
+  "events": []
+ },
+ "hahn": {
+  "case": "Hahn v. Triumph Partnerships LLC",
+  "citation": "557 F.3d 755",
+  "court": "7th Cir.",
+  "decided": "2009-03-04",
+  "provisions": [],
+  "simulator_script": [],
+  "n_events": 0,
+  "n_verified": 0,
+  "facts_paragraphs": 0,
+  "rule_paragraphs": 7,
+  "segments": {
+   "Procedural History": 1,
+   "Conclusion": 6,
+   "Analysis": 1
+  },
+  "events": []
+ },
+ "donohue": {
+  "case": "Donohue v. Quick Collect, Inc.",
+  "citation": "592 F.3d 1027",
+  "court": "9th Cir.",
+  "decided": "2010-01-13",
+  "provisions": [
+   "profanity"
+  ],
+  "simulator_script": [],
+  "n_events": 0,
+  "n_verified": 0,
+  "facts_paragraphs": 0,
+  "rule_paragraphs": 16,
+  "segments": {
+   "Decree": 4,
+   "Rule": 4,
+   "Issue": 2,
+   "Procedural History": 6,
+   "Analysis": 5,
+   "Conclusion": 7
+  },
+  "events": []
+ },
+ "gammon": {
+  "case": "Gammon v. GC Services Ltd. Partnership",
+  "citation": "27 F.3d 1254",
+  "court": "7th Cir.",
+  "decided": "1994-06-24",
+  "provisions": [],
+  "simulator_script": [
+   {
+    "speaker": "consumer",
+    "listener": "consumer",
+    "place": "consumer's home",
+    "say": "An unsophisticated consumer could reasonably believe that his future \"problems\" would be with \"a major branch of the federal government\" because of GC Services\u2019 development of the government\u2019s \"system",
+    "grounding": "An unsophisticated consumer could reasonably believe that his future \"problems\" would be with \"a major branch of the federal government\" because of GC Services\u2019 development of the government\u2019s \"systems.\""
+   },
+   {
+    "speaker": "consumer",
+    "listener": "consumer",
+    "place": "consumer's home",
+    "say": "GC Services\u2019 letter, by which it sought to collect a delinquent account of Jeffrey Gammon may have violated the provisions of section 1692e by falsely implying that it had an affiliation with the U.S.",
+    "grounding": "GC Services\u2019 letter, by which it sought to collect a delinquent account of Jeffrey Gammon may have violated the provisions of section 1692e by falsely implying that it had an affiliation with the United States or various states."
+   }
+  ],
+  "n_events": 2,
+  "n_verified": 2,
+  "facts_paragraphs": 1,
+  "rule_paragraphs": 19,
+  "segments": {
+   "Issue": 5,
+   "Rule": 11,
+   "Conclusion": 5,
+   "Decree": 4,
+   "Analysis": 3,
+   "Facts": 1
+  },
+  "events": [
+   {
+    "speaker": "consumer",
+    "listener": "consumer",
+    "place": "consumer's home",
+    "span": "An unsophisticated consumer could reasonably believe that his future \"problems\" would be with \"a major branch of the federal government\" because of GC Services\u2019 development of the government\u2019s \"systems.\"",
+    "utterance": "An unsophisticated consumer could reasonably believe that his future \"problems\" would be with \"a major branch of the federal government\" because of GC Services\u2019 development of the government\u2019s \"system",
+    "verified": true
+   },
+   {
+    "speaker": "consumer",
+    "listener": "consumer",
+    "place": "consumer's home",
+    "span": "GC Services\u2019 letter, by which it sought to collect a delinquent account of Jeffrey Gammon may have violated the provisions of section 1692e by falsely implying that it had an affiliation with the United States or various states.",
+    "utterance": "GC Services\u2019 letter, by which it sought to collect a delinquent account of Jeffrey Gammon may have violated the provisions of section 1692e by falsely implying that it had an affiliation with the U.S.",
+    "verified": true
+   }
+  ]
+ }
+}
